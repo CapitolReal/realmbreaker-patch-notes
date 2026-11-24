@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Realmbreaker Golf: Test Build 18 Patch Notes</title>
+<meta name="description" content="Test Build 18: a 70-second opening cinematic, a faster round on all fifteen holes, and the Hall of the Fallen hang fixed.">
+<meta name="theme-color" content="#f2c75b">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Realmbreaker Golf">
+<meta property="og:title" content="Test Build 18 Patch Notes">
+<meta property="og:description" content="A grand entrance. A faster round. A 70-second opening cinematic, about 30% faster on all fifteen holes, and the Hall of the Fallen hang fixed.">
+<meta property="og:url" content="https://capitolreal.github.io/realmbreaker-patch-notes/test18.html">
+<meta property="og:image" content="https://capitolreal.github.io/realmbreaker-patch-notes/img/hero.jpg">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="1116">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0a0f0d;
+  --bg-2:#0f1713;
+  --panel:#141e19;
+  --panel-2:#1a2620;
+  --ink:#ece6d6;
+  --ink-dim:#a7ac9d;
+  --ink-faint:#737a6e;
+  --gold:#f2c75b;
+  --gold-hi:#ffe09a;
+  --gold-deep:#b58430;
+  --line:rgba(242,199,91,.24);
+  --line-soft:rgba(236,230,214,.10);
+  --fairway:#8fd16a;
+  --plate-a:#6f9f4c;
+  --plate-b:#3c6a2c;
+  --ember:#ff8a52;
+  --steel:#8fbbe0;
+  --wrap:1180px;
+  --gut:clamp(18px,4vw,40px);
+  --font:"Archivo",system-ui,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--font);font-size:17px;line-height:1.6;font-stretch:100%;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+::selection{background:var(--gold);color:#17120a}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.label{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--gold)}
+.dim{color:var(--ink-dim)}
+p{margin:0 0 1em;max-width:65ch}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(10,15,13,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:62px}
+.top img{height:30px;width:auto}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{text-decoration:none;font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--ink-dim);padding:6px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.top nav a:hover{color:var(--gold-hi);border-color:var(--gold)}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+.build{font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:#17120a;background:linear-gradient(180deg,var(--gold-hi),var(--gold));padding:5px 10px 4px;border-radius:3px;white-space:nowrap}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:#06090a}
+.hero-art{position:relative}
+.hero-art img{width:100%;aspect-ratio:2000/1116;max-height:720px;object-fit:cover;object-position:50% 58%}
+.hero-art::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(10,15,13,.42) 0%,rgba(10,15,13,0) 16%,rgba(10,15,13,0) 52%,rgba(10,15,13,.78) 82%,var(--bg) 100%)}
+.hero-copy{position:relative;margin-top:clamp(-168px,-12vw,-30px);padding-bottom:44px}
+.hero h1{
+  margin:10px 0 18px;font-weight:900;font-style:italic;font-stretch:125%;text-transform:uppercase;
+  font-size:clamp(33px,6vw,78px);line-height:.96;letter-spacing:-.01em;text-wrap:balance;
+  text-shadow:0 3px 26px rgba(0,0,0,.75);
+}
+.hero h1 em{font-style:inherit;background:linear-gradient(180deg,var(--gold-hi) 10%,var(--gold) 55%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 3px 14px rgba(0,0,0,.7))}
+.hero .lede{font-size:clamp(17px,1.5vw,20px);color:var(--ink);max-width:58ch;text-shadow:0 1px 12px rgba(0,0,0,.8)}
+.credit{font-stretch:75%;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,var(--panel-2),var(--panel));position:relative;margin-top:26px}
+.stats::before,.stats::after,.plate::before,.plate::after{content:"";position:absolute;top:50%;width:9px;height:9px;background:var(--gold);transform:translateY(-50%) rotate(45deg);box-shadow:0 0 0 2px var(--bg)}
+.stats::before,.plate::before{left:-5px}
+.stats::after,.plate::after{right:-5px}
+.stat{padding:22px 22px 20px;border-left:1px solid var(--line-soft)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font-weight:900;font-style:italic;font-stretch:112%;font-size:clamp(24px,2.7vw,36px);line-height:1.05;white-space:nowrap}
+.stat b i{font-style:normal;font-weight:500;color:var(--gold);padding:0 .12em}
+.stat b span{color:var(--ink-faint)}
+.stat .label{display:block;margin-top:8px}
+.stat small{display:block;color:var(--ink-dim);font-size:14px;line-height:1.4;margin-top:2px}
+.fine{font-size:14.5px;color:var(--ink-dim);margin-top:14px;max-width:78ch}
+.fine strong{color:var(--ink);font-weight:600}
+
+/* sections */
+section{padding:clamp(54px,7vw,96px) 0}
+.alt{background:
+  repeating-linear-gradient(115deg,rgba(143,209,106,.028) 0 46px,rgba(143,209,106,0) 46px 92px),
+  linear-gradient(180deg,var(--bg-2),var(--bg));
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.plate{position:relative;display:inline-flex;align-items:stretch;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#26342c,#131b17);margin-bottom:26px;max-width:100%}
+.plate-n{display:grid;place-items:center;min-width:74px;padding:0 14px;border-radius:9px 0 0 9px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:118%;font-size:32px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.45)}
+.plate-t{padding:11px 26px 10px 18px}
+.plate h2{margin:0;font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:clamp(19px,2.4vw,27px);line-height:1.1;letter-spacing:.01em}
+.plate .label{font-size:12.5px;color:var(--ink-dim)}
+.intro{font-size:18px;color:var(--ink);margin-bottom:30px}
+
+/* trailer */
+.film{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:clamp(22px,3.4vw,46px);align-items:start}
+.frame{border:1px solid var(--line);border-radius:6px;padding:6px;background:#06090a;box-shadow:0 30px 70px -30px #000}
+.frame video{width:100%;aspect-ratio:16/9;border-radius:3px;background:#000}
+.film ul,.notes ul{list-style:none;margin:0;padding:0}
+.film li,.notes li{position:relative;padding:0 0 0 22px;margin:0 0 12px;max-width:68ch}
+.film li::before,.notes li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.aster{font-stretch:75%;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--ink-faint);margin-top:20px}
+
+/* notes */
+.group{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(18px,4vw,56px);padding:30px 0;border-top:1px solid var(--line-soft)}
+.group:first-of-type{border-top:1px solid var(--line)}
+.group h3{margin:0;font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:20px;line-height:1.15}
+.chip{display:inline-flex;align-items:center;gap:8px;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--c);margin-bottom:10px}
+.chip::before{content:"";width:8px;height:8px;background:var(--c);transform:rotate(45deg)}
+.group .count{font-size:14px;color:var(--ink-faint);margin-top:6px}
+.notes li{margin-bottom:14px}
+.notes li::before{background:var(--c)}
+.notes li strong{color:#fff;font-weight:700}
+.notes code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.86em;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:3px;color:var(--gold-hi);white-space:nowrap}
+.c-new{--c:var(--fairway)} .c-perf{--c:var(--gold)} .c-fix{--c:var(--ember)} .c-tool{--c:var(--steel)}
+
+/* art band */
+.band{position:relative;margin:0}
+.band img{width:100%;aspect-ratio:21/8;object-fit:cover;object-position:50% 42%}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0,rgba(10,15,13,0) 22%,rgba(10,15,13,0) 60%,var(--bg) 100%)}
+.band figcaption{position:absolute;z-index:1;left:0;right:0;bottom:16px;text-align:right}
+
+/* scorecard */
+.card{list-style:none;margin:0;padding:6px 0;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,var(--panel-2),var(--panel))}
+.row{display:grid;grid-template-columns:52px minmax(150px,1.15fr) minmax(0,3fr) 132px 70px;align-items:center;gap:0 18px;padding:9px 22px 9px 14px;border-top:1px solid var(--line-soft)}
+.row:first-child{border-top:0}
+.row .n{justify-self:start;display:grid;place-items:center;width:42px;height:30px;border-radius:5px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:112%;font-size:17px;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.row .nm{font-weight:600;font-size:16px;line-height:1.25}
+.bar{position:relative;height:12px;background:rgba(255,255,255,.055);border-radius:2px}
+.bar .b,.bar .g{position:absolute;top:0;bottom:0}
+.bar .b{left:0;width:calc(var(--b)/110*100%);background:#55635a;border-radius:2px 0 0 2px}
+.bar .g{left:calc(var(--b)/110*100%);width:calc((var(--a) - var(--b))/110*100%);background:linear-gradient(90deg,var(--gold-deep),var(--gold));border-radius:0 2px 2px 0}
+.bar::after{content:"";position:absolute;left:54.545%;top:-5px;bottom:-5px;width:1px;background:rgba(236,230,214,.34)}
+.row .v{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;color:var(--ink-dim)}
+.row .v i{font-style:normal;color:var(--ink-faint);padding:0 .3em}
+.row .v b{color:#fff;font-weight:800;font-size:18px}
+.row .d{text-align:right;font-weight:800;font-stretch:112%;font-style:italic;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+.row .d.even{color:var(--ink-faint);font-style:normal;font-stretch:75%;letter-spacing:.12em;font-size:13px}
+.row.head{padding-top:12px;padding-bottom:8px}
+.row.head span{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--ink-faint)}
+.axis{position:relative;height:16px}
+.axis span{position:absolute;top:0;transform:translateX(-50%)}
+.axis span:first-child{transform:none}
+.row.total{border-top:1px solid var(--line);background:rgba(242,199,91,.05);padding-top:13px;padding-bottom:13px}
+.row.total .nm{font-weight:800;font-stretch:112%;text-transform:uppercase}
+.row.total .n{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#17120a;text-shadow:none;font-size:13px;font-stretch:75%;font-style:normal;letter-spacing:.08em}
+.key{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 16px;font-size:14px;color:var(--ink-dim)}
+.key span{display:inline-flex;align-items:center;gap:8px}
+.key i{width:22px;height:10px;border-radius:2px;background:#55635a}
+.key .k-a{background:linear-gradient(90deg,var(--gold-deep),var(--gold))}
+.key .k-t{width:1px;height:16px;background:rgba(236,230,214,.5);border-radius:0}
+
+/* champions */
+.champs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.champ{margin:0;border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;background:var(--panel);transition:border-color .2s,transform .2s}
+.champ:hover{border-color:var(--line);transform:translateY(-3px)}
+.champ img{width:100%;aspect-ratio:1040/580;object-fit:cover}
+.champ figcaption{padding:15px 18px 18px;border-top:1px solid var(--line)}
+.champ h3{margin:0;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:17px;line-height:1.2}
+.champ .label{display:block;margin:3px 0 8px;font-size:12.5px}
+.champ p{margin:0;font-style:italic;color:var(--ink-dim);font-size:15.5px}
+
+/* gallery */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.shot{margin:0}
+.shot img{width:100%;border:1px solid var(--line-soft);border-radius:6px}
+.shot figcaption{display:flex;gap:10px;align-items:baseline;padding-top:9px;font-size:15px}
+.shot figcaption b{font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--gold);white-space:nowrap}
+
+/* known gaps */
+.gaps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.gap{border:1px solid var(--line-soft);border-left:3px solid var(--ember);border-radius:6px;padding:20px 22px;background:var(--panel)}
+.gap h3{margin:0 0 6px;font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:16px}
+.gap p{margin:0;color:var(--ink-dim);font-size:16px}
+
+/* footer */
+footer{position:relative;background:#06090a;border-top:1px solid var(--line)}
+footer .art img{width:100%;aspect-ratio:21/8;object-fit:cover;object-position:50% 62%}
+footer .art{position:relative}
+footer .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,9,10,.35),rgba(6,9,10,0) 30%,rgba(6,9,10,.2) 60%,#06090a 100%)}
+.sign{position:relative;margin-top:clamp(-64px,-4vw,-14px);padding-bottom:46px;text-align:center}
+.sign img{height:clamp(42px,6vw,70px);width:auto;margin:0 auto 14px;filter:drop-shadow(0 6px 22px rgba(0,0,0,.8))}
+.sign .tour{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.3em;font-size:13px;color:var(--ink)}
+.sign .soon{font-weight:900;font-style:italic;font-stretch:125%;text-transform:uppercase;font-size:clamp(24px,3.6vw,40px);margin:12px 0 6px;color:var(--gold)}
+.sign .meta{margin:18px auto 0;color:var(--ink-faint);font-size:13.5px;max-width:none}
+
+/* entrance: runs once, rests visible */
+@media (prefers-reduced-motion:no-preference){
+  .hero-art img{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*:nth-child(2){animation-delay:.12s}
+  .hero-copy>*:nth-child(3){animation-delay:.24s}
+  .hero-copy>*:nth-child(4){animation-delay:.38s}
+  .hero-copy>*:nth-child(5){animation-delay:.5s}
+  @keyframes settle{from{transform:scale(1.07);filter:brightness(.55)}}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.champ{transition:none}}
+
+@media (max-width:980px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line-soft)}
+  .film{grid-template-columns:1fr}
+  .champs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .group{grid-template-columns:1fr;gap:14px}
+  .gaps{grid-template-columns:1fr}
+  .row{grid-template-columns:46px minmax(120px,1fr) minmax(0,1.6fr) 118px 58px;gap:0 12px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .top nav{display:none}
+  .top .wrap{justify-content:space-between;height:56px}
+  .top img{height:25px}
+  html{scroll-padding-top:66px}
+  .row{grid-template-columns:42px minmax(0,1fr) auto;grid-template-areas:"n nm d" "n bar bar" "n v v";gap:5px 12px;padding:11px 14px 11px 12px;align-items:center}
+  .row .n{grid-area:n;align-self:start;width:36px}
+  .row .nm{grid-area:nm}.row .bar,.row .axis{grid-area:bar}.row .v{grid-area:v;text-align:left;font-size:14.5px}.row .d{grid-area:d}
+  .row .v b{font-size:15.5px}
+  .row.head{grid-template-areas:"n nm d" "n bar bar"}
+  .row.head .v{display:none}
+  .shots,.gaps{grid-template-columns:1fr}
+  .band img,footer .art img{aspect-ratio:16/9}
+  .band figcaption{position:static;text-align:left;padding-top:6px}
+}
+@media (max-width:540px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-left:0;padding:16px 18px}
+  .stat:nth-child(n+2){border-top:1px solid var(--line-soft)}
+  .champs{grid-template-columns:1fr}
+  .plate-n{min-width:58px;font-size:25px}
+  .plate-t{padding:9px 18px 8px 14px}
+  .build{font-size:11px}
+  .hero .label{letter-spacing:.07em;font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <a href="#top" aria-label="Realmbreaker Golf, top of page"><img src="img/logo.png" width="1210" height="234" alt="Realmbreaker Golf"></a>
+    <nav aria-label="Sections">
+      <a href="#cinematic">Cinematic</a>
+      <a href="#notes">Notes</a>
+      <a href="#scorecard">Scorecard</a>
+      <a href="#champions">Champions</a>
+      <a href="#course">Course</a>
+    </nav>
+    <a class="build" href="./" style="text-decoration:none">Latest dev update &rarr;</a>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-art">
+    <img src="img/hero.jpg" width="2000" height="1116" alt="Nine fantasy champions standing in a line on a floating cliff, each leaning on a golf club, storm light breaking behind them.">
+  </div>
+  <div class="wrap hero-copy">
+    <div class="label">Patch notes &nbsp;·&nbsp; Test Build 18 &nbsp;·&nbsp; 20 November 2026</div>
+    <h1>A grand entrance.<br><em>A faster round.</em></h1>
+    <p class="lede">The game now opens with a 70-second cinematic, runs about 30% faster across all fifteen holes, and no longer hangs at the Hall of the Fallen. Nothing was traded away to get there: it looks exactly as it did.</p>
+
+    <div class="stats">
+      <div class="stat"><b><span>71</span><i>→</i>93</b><span class="label">Average FPS</span><small>across all fifteen holes</small></div>
+      <div class="stat"><b><span>12.5</span><i>→</i>5.6</b><span class="label">Milliseconds per frame</span><small>game-thread time</small></div>
+      <div class="stat"><b><span>337</span><i>→</i>60</b><span class="label">Slow frames</span><small>frames over 33 ms in the benchmark round</small></div>
+      <div class="stat"><b><span>17</span><i>→</i>0</b><span class="label">Hole 14 hangs</span><small>17 in 127 starts before, 0 in 90 after</small></div>
+    </div>
+    <p class="fine"><strong>How these were measured:</strong> on the development build at 1640×920, with the frame rate uncapped. <strong>The download is capped at 60 FPS</strong>, so 60 is the most you will see in play.</p>
+  </div>
+</header>
+
+<main>
+
+<section id="cinematic">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">01</span><div class="plate-t"><h2>Opening cinematic</h2><span class="label">New in this build</span></div></div>
+    <div class="film">
+      <div class="frame">
+        <video controls preload="metadata" playsinline poster="img/poster.jpg" width="1280" height="720">
+          <source src="trailer.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div>
+        <p class="intro">Launch the game and this plays first, then the title screen. Any key or click skips it.</p>
+        <ul>
+          <li>All nine champions, each with a name card and one line of character reference.</li>
+          <li>A narrator who takes it all very seriously.</li>
+          <li>Orchestral score with full choir.</li>
+          <li>Three sight gags.</li>
+        </ul>
+        <p class="aster">* Mulligans sold separately</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="notes" class="alt">
+  <div class="wrap notes">
+    <div class="plate"><span class="plate-n">02</span><div class="plate-t"><h2>Patch notes</h2><span class="label">Everything that changed</span></div></div>
+
+    <div class="group c-new">
+      <div><span class="chip">New</span><h3>Opening cinematic</h3><div class="count">1 addition</div></div>
+      <ul>
+        <li><strong>The game opens with a 70-second trailer</strong>, then goes to the title screen. It plays on every launch; any key or click skips it.</li>
+      </ul>
+    </div>
+
+    <div class="group c-perf">
+      <div><span class="chip">Performance</span><h3>A faster round</h3><div class="count">7 changes, no visual differences</div></div>
+      <ul>
+        <li><strong>Average frame rate up from 71 to 93 FPS</strong> across all fifteen holes.</li>
+        <li><strong>Game-thread time per frame down from 12.5 ms to 5.6 ms.</strong> The HUD was the main cost. It now remembers its text layout instead of measuring every letter every frame.</li>
+        <li><strong>Slow frames cut from 337 to 60.</strong> These are frames that took longer than 33 ms over the benchmark round.</li>
+        <li><strong>The stutter when changing holes is gone.</strong> The HUD was rebuilding its text cache at every hole.</li>
+        <li><strong>Terrain is drawn as one merged mesh</strong>, which also clears a shadow-system overflow warning.</li>
+        <li><strong>Sounds preload in the background</strong> instead of on first use.</li>
+        <li><strong>In the download build, hole 1 holds the 60 FPS cap.</strong></li>
+      </ul>
+    </div>
+
+    <div class="group c-fix">
+      <div><span class="chip">Fixes</span><h3>Bugs and crashes</h3><div class="count">8 fixes</div></div>
+      <ul>
+        <li><strong>Hall of the Fallen (hole 14): graphics-driver hang fixed.</strong> It struck in the first seconds at the tee, about one start in seven. Before: 17 hangs in 127 starts. After: none in 90.</li>
+        <li><strong>Aurora Fjord is now a par 4.</strong> It was a par 5.</li>
+        <li><strong>Lobby:</strong> mouse hover and clicks now update the screen straight away.</li>
+        <li><strong>Multiplayer:</strong> each hole's state resets when the hole starts, not when a player joins.</li>
+        <li><strong>Multiplayer:</strong> a player who leaves is cleared after a 10-second grace period, and the host can finish the round alone.</li>
+        <li><strong>Multiplayer:</strong> fixed the check that decides which golfer is yours when players are on separate machines.</li>
+        <li><strong>Spin steering:</strong> fixed a divide-by-zero.</li>
+        <li><strong>Mini-game:</strong> fixed a wave that could fail to end.</li>
+      </ul>
+    </div>
+
+    <div class="group c-tool">
+      <div><span class="chip">Under the hood</span><h3>Testing and tools</h3><div class="count">2 additions</div></div>
+      <ul>
+        <li><strong>Five new automated test suites:</strong> every hole rendered and played, a full headless round, menus and modes, host with a joining client, and a client dropping mid-hole.</li>
+        <li><strong>Benchmark switches:</strong> <code>-rbgbench</code> for frame statistics, <code>-rbgbenchfile</code> to write them to a file, and <code>-rbgnohud</code> to run without the HUD.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/k-vista.jpg" width="1600" height="893" loading="lazy" alt="Floating islands chained together above a golden storm: a temple isle, a volcano, and an ice shelf under an aurora.">
+  <figcaption><div class="wrap credit">Art from the opening cinematic</div></figcaption>
+</figure>
+
+<section id="scorecard">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">03</span><div class="plate-t"><h2>The scorecard</h2><span class="label">Frames per second, hole by hole</span></div></div>
+    <p class="intro">Every hole was played start to finish before and after the optimization pass. Development build, 1640×920, frame rate uncapped.</p>
+    <div class="key">
+      <span><i></i>Before</span>
+      <span><i class="k-a"></i>Gained in this build</span>
+      <span><i class="k-t"></i>60 FPS, the download build's cap</span>
+    </div>
+    <ol class="card">
+      <li class="row head"><span>Hole</span><span>Name</span><span class="axis"><span style="left:0">0</span><span style="left:27.273%">30</span><span style="left:54.545%">60</span><span style="left:81.818%">90</span></span><span class="v">Before → after</span><span class="d">Gain</span></li>
+      <li class="row" style="--b:72;--a:89"><span class="n">1</span><span class="nm">Elderwood Gate</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">72<i>→</i><b>89</b></span><span class="d">+17</span></li>
+      <li class="row" style="--b:69;--a:98"><span class="n">2</span><span class="nm">Dragon's Spine</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">69<i>→</i><b>98</b></span><span class="d">+29</span></li>
+      <li class="row" style="--b:52;--a:86"><span class="n">3</span><span class="nm">Crystal Mere</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">52<i>→</i><b>86</b></span><span class="d">+34</span></li>
+      <li class="row" style="--b:68;--a:95"><span class="n">4</span><span class="nm">Gloomgate Vale</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">68<i>→</i><b>95</b></span><span class="d">+27</span></li>
+      <li class="row" style="--b:90;--a:95"><span class="n">5</span><span class="nm">Ironforge Deep</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">90<i>→</i><b>95</b></span><span class="d">+5</span></li>
+      <li class="row" style="--b:63;--a:93"><span class="n">6</span><span class="nm">Necropolis</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">63<i>→</i><b>93</b></span><span class="d">+30</span></li>
+      <li class="row" style="--b:68;--a:86"><span class="n">7</span><span class="nm">Vale of Falling Waters</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">68<i>→</i><b>86</b></span><span class="d">+18</span></li>
+      <li class="row" style="--b:72;--a:87"><span class="n">8</span><span class="nm">Eagle's Tarn</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">72<i>→</i><b>87</b></span><span class="d">+15</span></li>
+      <li class="row" style="--b:95;--a:95"><span class="n">9</span><span class="nm">Throne of Ash</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">95<i>→</i><b>94–97</b></span><span class="d even">Even</span></li>
+      <li class="row" style="--b:79;--a:107"><span class="n">10</span><span class="nm">The Colosseum of Kings</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">79<i>→</i><b>107</b></span><span class="d">+28</span></li>
+      <li class="row" style="--b:61;--a:105"><span class="n">11</span><span class="nm">The Starfall Isles</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">61<i>→</i><b>105</b></span><span class="d">+44</span></li>
+      <li class="row" style="--b:88;--a:96"><span class="n">12</span><span class="nm">The Two Trees</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">88<i>→</i><b>96</b></span><span class="d">+8</span></li>
+      <li class="row" style="--b:62;--a:97"><span class="n">13</span><span class="nm">Stormcrown Aerie</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">62<i>→</i><b>97</b></span><span class="d">+35</span></li>
+      <li class="row" style="--b:56;--a:63"><span class="n">14</span><span class="nm">Hall of the Fallen</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">56<i>→</i><b>63</b></span><span class="d">+7</span></li>
+      <li class="row" style="--b:75;--a:102"><span class="n">15</span><span class="nm">Aurora Fjord</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">75<i>→</i><b>102</b></span><span class="d">+27</span></li>
+      <li class="row total" style="--b:71;--a:93"><span class="n">Avg</span><span class="nm">The full round</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">71<i>→</i><b>93</b></span><span class="d">+22</span></li>
+    </ol>
+    <p class="fine">Throne of Ash was already the fastest hole and came back between 94 and 97 across runs, so it is scored even. Hall of the Fallen is still the slowest hole on the course, at 63.</p>
+  </div>
+</section>
+
+<section id="champions" class="alt">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">04</span><div class="plate-t"><h2>The nine champions</h2><span class="label">As they appear in the opening cinematic</span></div></div>
+    <div class="champs">
+      <figure class="champ"><img src="img/c-elf.jpg" width="1040" height="580" loading="lazy" alt="Sylvara Moonbrook, an elf ranger, on a forest fairway."><figcaption><h3>Sylvara Moonbrook</h3><span class="label">Elf Ranger</span><p>Never misses. Will mention it.</p></figcaption></figure>
+      <figure class="champ"><img src="img/c-demon.jpg" width="1040" height="580" loading="lazy" alt="Malgrath the Unbound, a horned demon warlord in molten armour."><figcaption><h3>Malgrath the Unbound</h3><span class="label">Demon Warlord</span><p>Banned from six clubhouses.</p></figcaption></figure>
+      <figure class="champ"><img src="img/c-dwarf.jpg" width="1040" height="580" loading="lazy" alt="Brokk Ironbeard, a dwarf forgemaster with a forged club."><figcaption><h3>Brokk Ironbeard</h3><span class="label">Dwarf Forgemaster</span><p>Forged his own clubs. And scorecard.</p></figcaption></figure>
+      <figure class="champ"><img src="img/c-orc.jpg" width="1040" height="580" loading="lazy" alt="Grukka Bonecrusher, a huge orc gripping a club."><figcaption><h3>Grukka Bonecrusher</h3><span class="label">Orc Brute</span><p>Goes through nine clubs a round.</p></figcaption></figure>
+      <figure class="champ"><img src="img/c-lich.jpg" width="1040" height="580" loading="lazy" alt="Vex the Hollow King, a crowned undead lich."><figcaption><h3>Vex the Hollow King</h3><span class="label">Undead Lich</span><p>Brings his own gallery.</p></figcaption></figure>
+      <figure class="champ"><img src="img/c-wizard.jpg" width="1040" height="580" loading="lazy" alt="Archmage Thalorin, a wizard in star-patterned robes."><figcaption><h3>Archmage Thalorin</h3><span class="label">Wizard</span><p>Insists the ball teleported in.</p></figcaption></figure>
+      <figure class="champ"><img src="img/c-paladin.jpg" width="1040" height="580" loading="lazy" alt="Seraphine Dawnblade, a paladin in white and gold plate."><figcaption><h3>Seraphine Dawnblade</h3><span class="label">Paladin</span><p>Calls penalties on herself.</p></figcaption></figure>
+      <figure class="champ"><img src="img/c-wolf.jpg" width="1040" height="580" loading="lazy" alt="Fenrik Ashmane, a werewolf on a snowbound course."><figcaption><h3>Fenrik Ashmane</h3><span class="label">Werewolf</span><p>The pack fetches. Eventually.</p></figcaption></figure>
+      <figure class="champ"><img src="img/c-emra.jpg" width="1040" height="580" loading="lazy" alt="Emra the Stormtalon, a winged valkyrie."><figcaption><h3>Emra the Stormtalon</h3><span class="label">Avian Valkyrie</span><p>Says flying is not cheating.</p></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="course">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">05</span><div class="plate-t"><h2>From the course</h2><span class="label">In-game screenshots, this build</span></div></div>
+    <div class="shots">
+      <figure class="shot"><img src="img/s-h3.jpg" width="1280" height="718" loading="lazy" alt="In-game: a glowing crystal lake under a purple night sky, seen from the tee."><figcaption><b>Hole 3</b>Crystal Mere, par 3</figcaption></figure>
+      <figure class="shot"><img src="img/s-h2.jpg" width="1280" height="718" loading="lazy" alt="In-game: a fairway running through the ribcage of a giant dragon skeleton, lit by lava."><figcaption><b>Hole 2</b>Dragon's Spine, par 5</figcaption></figure>
+      <figure class="shot"><img src="img/s-h7.jpg" width="1280" height="718" loading="lazy" alt="In-game: white elven arches and waterfalls on floating islands, with a rainbow."><figcaption><b>Hole 7</b>Vale of Falling Waters, par 5</figcaption></figure>
+      <figure class="shot"><img src="img/s-h11.jpg" width="1280" height="718" loading="lazy" alt="In-game: a tee in open space with a ringed asteroid and a blue planet behind."><figcaption><b>Hole 11</b>The Starfall Isles, par 4</figcaption></figure>
+      <figure class="shot"><img src="img/s-h14.jpg" width="1280" height="718" loading="lazy" alt="In-game: golden floating halls and a winged statue above a sea of cloud."><figcaption><b>Hole 14</b>Hall of the Fallen, par 5</figcaption></figure>
+      <figure class="shot"><img src="img/s-h15.jpg" width="1280" height="718" loading="lazy" alt="In-game: a snow tee under a green aurora, torches lining the fairway."><figcaption><b>Hole 15</b>Aurora Fjord, par 4</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="gaps" class="alt">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">06</span><div class="plate-t"><h2>Not yet verified</h2><span class="label">Tell us what you see</span></div></div>
+    <div class="gaps">
+      <div class="gap"><h3>Download-build frame rate past hole 1</h3><p>Only hole 1 has been timed in the download build. The other fourteen were measured on the development build. If a hole drops below 60, name the hole.</p></div>
+      <div class="gap"><h3>Trailer sound balance</h3><p>The cinematic's mix was balanced by meter, not by ear. If the narrator is buried or the score is too loud, say so.</p></div>
+      <div class="gap"><h3>Hole 14 hang in the download build</h3><p>The Hall of the Fallen fix was counted over 90 starts on the development build, not in the download. If the game freezes in the first seconds at that tee, report it.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="art"><img src="img/k-green.jpg" width="1600" height="893" loading="lazy" alt="A golf ball rolling toward a golden cup at sunset while a dragon crosses the sky."></div>
+  <div class="wrap sign">
+    <img src="img/logo.png" width="1210" height="234" loading="lazy" alt="Realmbreaker Golf">
+    <div class="tour">Tour of the Shattered Realms</div>
+    <div class="soon">Coming soon</div>
+    <p class="meta">Test Build 18 &nbsp;·&nbsp; 20 November 2026 &nbsp;·&nbsp; Art from the opening cinematic</p>
+  </div>
+</footer>
+
+</body>
+</html>
