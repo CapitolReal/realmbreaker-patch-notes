@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Realmbreaker Golf: Dev Update, 24 November 2026</title>
-<meta name="description" content="Since Test Build 18: the course grows to eighteen holes, every champion gets a kit of four abilities, and the game has a new entrance.">
+<title>Realmbreaker Golf: Dev Update, 25 November 2026</title>
+<meta name="description" content="Test Build 20 and after: two skins to earn for every champion, the three newest holes reworked, the Archmage's home, new dragons, and a review of all 36 abilities.">
 <meta name="theme-color" content="#f2c75b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Realmbreaker Golf">
-<meta property="og:title" content="Dev Update: eighteen holes, four abilities each">
-<meta property="og:description" content="Three new holes, two rebuilt, a kit of four abilities for every champion, a living gallery, lobby champion select and a new title screen. Coming in the next test build.">
+<meta property="og:title" content="Dev Update: eighteen skins, three holes reworked">
+<meta property="og:description" content="Eighteen champion skins to earn, the Great Forge, the Giant's Feast and the World Turtle reworked, the Archmage's home on the Starfall Isles, new dragons, a landing camera, and every ability reviewed.">
 <meta property="og:url" content="https://capitolreal.github.io/realmbreaker-patch-notes/">
-<meta property="og:image" content="https://capitolreal.github.io/realmbreaker-patch-notes/img/t-hero.jpg">
+<meta property="og:image" content="https://capitolreal.github.io/realmbreaker-patch-notes/img/d2-hero.jpg">
 <meta property="og:image:width" content="1640">
 <meta property="og:image:height" content="585">
 <meta name="twitter:card" content="summary_large_image">
@@ -279,20 +279,51 @@ footer .art::after{content:"";position:absolute;inset:0;background:linear-gradie
   .build{font-size:11px}
   .hero .label{letter-spacing:.07em;font-size:12px}
 }
+
+/* ---- 25 November 2026: where a change lives, skins, tee-view table ---- */
+.where{display:inline-block;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;line-height:1.3;padding:4px 9px 3px;border-radius:3px;white-space:nowrap;vertical-align:middle}
+.where.in{color:#17120a;background:linear-gradient(180deg,var(--gold-hi),var(--gold))}
+.where.dev{color:var(--fairway);box-shadow:inset 0 0 0 1px var(--fairway);background:rgba(143,209,106,.08)}
+.tagline{margin:-12px 0 18px}
+.split{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:44px 0 16px;font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:17px;line-height:1.3;color:var(--ink-dim)}
+.plate + .split{margin-top:4px}
+.notes figcaption a,.shot figcaption a,.intro a,.sign a{text-underline-offset:3px}
+.intro a{color:var(--gold-hi)}
+.shot figcaption a{color:var(--ink)}
+
+.skins{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.skin{grid-column:span 2}
+.skin:last-child:nth-child(odd){grid-column:2/span 2}
+.skin{margin:0;border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;background:var(--panel)}
+.skin figcaption{padding:14px 16px 12px;border-bottom:1px solid var(--line)}
+.skin h3{margin:0;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:17px;line-height:1.2}
+.skin .label{display:block;margin-top:3px;font-size:12.5px}
+.looks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-soft)}
+.look{background:var(--panel);padding-bottom:11px;text-align:center;min-width:0}
+.look img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.look b{display:block;margin:10px 6px 0;font-weight:800;text-transform:uppercase;font-size:13.5px;line-height:1.2;color:#fff;text-wrap:balance}
+.look span{display:block;margin:3px 5px 0;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:11px;line-height:1.25;color:var(--c)}
+.l1{--c:var(--ink-faint)} .l2{--c:var(--fairway)} .l3{--c:var(--gold)}
+
+.tee .bar .g{left:0;width:calc(var(--a)/240*100%);border-radius:2px}
+.tee .bar::after{left:25%}
+.tee .row .d.even{font-style:normal}
+
+@media (max-width:760px){.skins{grid-template-columns:1fr}.skin,.skin:last-child:nth-child(odd){grid-column:auto}.tagline{margin-top:-8px}}
 </style>
 </head>
 <body>
 
 <div class="top">
   <div class="wrap">
-    <a href="#top" aria-label="Realmbreaker Golf, top of page"><img src="img/logo2.png" width="1210" height="234" alt="Realmbreaker Golf"></a>
+    <a href="#top" aria-label="Realmbreaker Golf, top of page"><img src="img/logo3.png" width="1210" height="234" alt="Realmbreaker Golf"></a>
     <nav aria-label="Sections">
-      <a href="#kits">Kits</a>
-      <a href="#action">Abilities</a>
+      <a href="#skins">Skins</a>
       <a href="#holes">Holes</a>
-      <a href="#entrance">Title</a>
+      <a href="#starfall">Starfall</a>
+      <a href="#play">Play</a>
       <a href="#notes">Notes</a>
-      <a href="#scorecard">Scorecard</a>
+      <a href="#gaps">To check</a>
     </nav>
     <span class="build">Dev Update</span>
   </div>
@@ -300,259 +331,255 @@ footer .art::after{content:"";position:absolute;inset:0;background:linear-gradie
 
 <header class="hero" id="top">
   <div class="hero-art">
-    <img src="img/t-hero.jpg" width="1640" height="585" alt="The game's title screen: the Realmbreaker Golf logo in gold over a glowing crystal lake ringed with pink and blue trees, under an aurora.">
+    <img src="img/d2-hero.jpg" width="1640" height="585" alt="In-game: the World Turtle from above. A fairway is cut into his mossy shell, and his head is turned back toward the tee.">
   </div>
   <div class="wrap hero-copy">
-    <div class="label">Dev update &nbsp;&middot;&nbsp; 24 November 2026 &nbsp;&middot;&nbsp; Built since Test Build 18</div>
-    <h1>Eighteen holes.<br><em>Four abilities each.</em></h1>
-    <p class="lede">Since Test Build 18 the course has grown to a full eighteen, every champion has a kit of four abilities, the galleries have come alive, and the game has a new entrance.</p>
-    <p class="notice"><strong>Not in a download yet.</strong> Everything on this page is in the development build and will ship in the next test build. The download is still Test Build 18.</p>
+    <div class="label">Dev update &nbsp;&middot;&nbsp; 25 November 2026 &nbsp;&middot;&nbsp; Test Build 20 and after</div>
+    <h1>Eighteen skins.<br><em>Three holes reworked.</em></h1>
+    <p class="lede">Test Build 20 was packaged on 24 November. Since then every champion has gained two skins to earn, the three newest holes have been reworked, and all 36 abilities have been filmed, reviewed and tidied.</p>
+    <p class="notice"><strong>Two labels on this page.</strong> <span class="where in">In Test Build 20</span> is in the packaged build. <span class="where dev">Since Test Build 20</span> is in the development build and ships in the next test build.</p>
 
     <div class="stats">
-      <div class="stat"><b><span>15</span><i>&rarr;</i>18</b><span class="label">Holes</span><small>three new, two rebuilt from scratch</small></div>
-      <div class="stat"><b>36</b><span class="label">Abilities</span><small>four for each of the nine champions</small></div>
-      <div class="stat"><b>98</b><span class="label">Sounds re-recorded</span><small>every synthesised sound replaced</small></div>
-      <div class="stat"><b><span>63</span><i>&rarr;</i>114</b><span class="label">FPS, Hall of the Fallen</span><small>was the slowest hole on the course</small></div>
+      <div class="stat"><b>18</b><span class="label">New skins</span><small>two for each of the nine champions</small></div>
+      <div class="stat"><b>3</b><span class="label">Holes reworked</span><small>the Great Forge, the Giant's Feast, the World Turtle</small></div>
+      <div class="stat"><b>36</b><span class="label">Abilities reviewed</span><small>each one filmed in play, the faults fixed</small></div>
+      <div class="stat"><b><span>10</span><i>&rarr;</i>5</b><span class="label">Computer's score, hole 10</span><small>it no longer hits out of bounds five times running</small></div>
     </div>
-    <p class="fine"><strong>How frame rates were measured:</strong> on the development build at 1640&times;920, with the frame rate uncapped. <strong>The download is capped at 60 FPS</strong>, and none of these numbers has been measured in a download build yet.</p>
   </div>
 </header>
 
 <main>
 
-<section id="kits">
+<section id="skins">
   <div class="wrap">
-    <div class="plate"><span class="plate-n">01</span><div class="plate-t"><h2>The nine kits</h2><span class="label">Four abilities for every champion</span></div></div>
-    <p class="intro">The shared Tome and the champion spellbooks are gone. In their place every champion has four abilities of their own.</p>
+    <div class="plate"><span class="plate-n">01</span><div class="plate-t"><h2>Champion skins</h2><span class="label">Two more looks for every champion</span></div></div>
+    <p class="tagline"><span class="where dev">Since Test Build 20</span></p>
+    <p class="intro">Each champion has two new outfits. They are new models, not recolours, and each keeps to its champion's theme. You earn them by playing that champion.</p>
     <div class="rules">
-      <div class="rule r-p"><h3>Realm Power</h3><p>Charges as you play, now 25% slower than in Test Build 18. Fire it with <kbd>F</kbd> at a full meter.</p></div>
-      <div class="rule r-s"><h3>Signature</h3><p>Three uses a round, on <kbd>R</kbd>. No charging.</p></div>
-      <div class="rule r-a"><h3>Two abilities</h3><p>Three uses each a round, on <kbd>E</kbd> and <kbd>B</kbd>. All eighteen are new since Test Build 18.</p></div>
+      <div class="rule r-a"><h3>Second look</h3><p>Five birdies or better with that champion, counted across any rounds.</p></div>
+      <div class="rule r-p"><h3>Third look</h3><p>A full eighteen-hole round under par with that champion.</p></div>
+      <div class="rule r-s"><h3>Kept between builds</h3><p>Progress is saved outside the game folder, so a new test build does not wipe what you have earned.</p></div>
     </div>
-    <div class="champs">
-      <figure class="champ"><img src="img/c-elf.jpg" width="1040" height="580" loading="lazy" alt="Sylvara Moonbrook, an elf ranger, on a forest fairway."><figcaption><h3>Sylvara Moonbrook</h3><span class="label">Elf Ranger</span>
-        <ul class="kit">
-          <li class="k-p"><b>Windwalker</b><span>Realm Power</span><p>Her eagle carries the ball on toward the pin.</p></li>
-          <li class="k-s"><b>Starshard Arrow</b><span>Signature</span><p>Splits her ball in five. She picks which one to play.</p></li>
-          <li class="k-a"><b>Moonbow</b><span>Ability</span><p>The ball flies as an arrow: no wind, through the trees, and it sticks where it lands.</p></li>
-          <li class="k-a"><b>Fey Crossing</b><span>Ability</span><p>Two white stags swap her ball with the rival ball nearest the hole.</p></li>
-        </ul></figcaption></figure>
-      <figure class="champ"><img src="img/c-demon.jpg" width="1040" height="580" loading="lazy" alt="Malgrath the Unbound, a horned demon warlord in molten armour."><figcaption><h3>Malgrath the Unbound</h3><span class="label">Demon Warlord</span>
-        <ul class="kit">
-          <li class="k-p"><b>Hellgate</b><span>Realm Power</span><p>His ball flies into a gate of fire and falls out of another in the sky over the pin. Replaces Hellfire Drive.</p></li>
-          <li class="k-s"><b>Spawn of Malgrath</b><span>Signature</span><p>+32% power on his next full shot.</p></li>
-          <li class="k-a"><b>Hellforged Driver</b><span>Ability</span><p>+23% off the tee, and no wind can touch it.</p></li>
-          <li class="k-a"><b>Wyrm of the Pit</b><span>Ability</span><p>His dragon flies the hole and burns every rival ball into ash.</p></li>
-        </ul></figcaption></figure>
-      <figure class="champ"><img src="img/c-dwarf.jpg" width="1040" height="580" loading="lazy" alt="Brokk Ironbeard, a dwarf forgemaster with a forged club."><figcaption><h3>Brokk Ironbeard</h3><span class="label">Dwarf Forgemaster</span>
-        <ul class="kit">
-          <li class="k-p"><b>Stonebreaker</b><span>Realm Power</span><p>No lie penalty, +15% power, and gold where the ball stops.</p></li>
-          <li class="k-s"><b>Deep Delve</b><span>Signature</span><p>The ball tunnels under every hazard and tree.</p></li>
-          <li class="k-a"><b>Deepanvil Fortress</b><span>Ability</span><p>A dwarven wall rises behind his ball and stands for the hole.</p></li>
-          <li class="k-a"><b>Minecart Express</b><span>Ability</span><p>Rails to the cup. The ball rides them in.</p></li>
-        </ul></figcaption></figure>
-      <figure class="champ"><img src="img/c-orc.jpg" width="1040" height="580" loading="lazy" alt="Grukka Bonecrusher, a huge orc gripping a club."><figcaption><h3>Grukka Bonecrusher</h3><span class="label">Orc Brute</span>
-        <ul class="kit">
-          <li class="k-p"><b>Bonecrusher's Rage</b><span>Realm Power</span><p>+40% power, and the landing throws rival balls back.</p></li>
-          <li class="k-s"><b>Pit Fight</b><span>Signature</span><p>Drags a rival into a pit for a ten-second brawl. The loser takes a stroke.</p></li>
-          <li class="k-a"><b>Warleap</b><span>Ability</span><p>He leaps the length of his shot after the ball. That stroke does not count.</p></li>
-          <li class="k-a"><b>Crater Cup</b><span>Ability</span><p>Smashes the cup into a crater four feet wide, for him alone.</p></li>
-        </ul></figcaption></figure>
-      <figure class="champ"><img src="img/c-lich.jpg" width="1040" height="580" loading="lazy" alt="Vex the Hollow King, a crowned undead lich."><figcaption><h3>Vex the Hollow King</h3><span class="label">Undead Lich</span>
-        <ul class="kit">
-          <li class="k-p"><b>Grasp of the Hollow King</b><span>Realm Power</span><p>A bone arm throws the ball half the way home.</p></li>
-          <li class="k-s"><b>Hands of the Grave</b><span>Signature</span><p>Skeleton hands push his putt into the cup.</p></li>
-          <li class="k-a"><b>Haunted Green</b><span>Ability</span><p>Ghosts tug at every rival putt on the green.</p></li>
-          <li class="k-a"><b>Hollow Throne</b><span>Ability</span><p>He sits a throne of bone and plays from anywhere within 20 yards.</p></li>
-        </ul></figcaption></figure>
-      <figure class="champ"><img src="img/c-wizard.jpg" width="1040" height="580" loading="lazy" alt="Archmage Thalorin, a wizard in star-patterned robes."><figcaption><h3>Archmage Thalorin</h3><span class="label">Wizard</span>
-        <ul class="kit">
-          <li class="k-p"><b>Broken Mirrors</b><span>Realm Power</span><p>A wall of glass hangs before the green. Rival balls break a pane and drop. Replaces Seer's Sight.</p></li>
-          <li class="k-s"><b>Arcane Blink</b><span>Signature</span><p>Teleports the ball 60% of the way, no stroke.</p></li>
-          <li class="k-a"><b>Spire of Glass</b><span>Ability</span><p>A crystal tower lifts him: +40% carry from its top.</p></li>
-          <li class="k-a"><b>Arcane Plunder</b><span>Ability</span><p>He plays any other champion's Signature as his own.</p></li>
-        </ul></figcaption></figure>
-      <figure class="champ"><img src="img/c-paladin.jpg" width="1040" height="580" loading="lazy" alt="Seraphine Dawnblade, a paladin in white and gold plate."><figcaption><h3>Seraphine Dawnblade</h3><span class="label">Paladin</span>
-        <ul class="kit">
-          <li class="k-p"><b>Divine Aim</b><span>Realm Power</span><p>The ball bends to the pin, and the cup draws it in.</p></li>
-          <li class="k-s"><b>Aegis of Dawn</b><span>Signature</span><p>No hazard penalties for the rest of the hole.</p></li>
-          <li class="k-a"><b>Armor of the Dawn</b><span>Ability</span><p>She becomes a knight of sunlight. Every shot this hole bends toward the pin.</p></li>
-          <li class="k-a"><b>Blade of Judgment</b><span>Ability</span><p>A sword of light falls by the leader's ball. Their next stroke loses 30% power.</p></li>
-        </ul></figcaption></figure>
-      <figure class="champ"><img src="img/c-wolf.jpg" width="1040" height="580" loading="lazy" alt="Fenrik Ashmane, a werewolf on a snowbound course."><figcaption><h3>Fenrik Ashmane</h3><span class="label">Werewolf</span>
-        <ul class="kit">
-          <li class="k-p"><b>Moon Frenzy</b><span>Realm Power</span><p>The beast takes him: +2 to every stat, +25% power.</p></li>
-          <li class="k-s"><b>Winter's Pack</b><span>Signature</span><p>His wolves carry off the first rival ball that comes near.</p></li>
-          <li class="k-a"><b>Glacier Run</b><span>Ability</span><p>The ball lands on a road of ice and slides far and straight.</p></li>
-          <li class="k-a"><b>Shadow of the Alpha</b><span>Ability</span><p>A ghost wolf stands over each rival and speeds up their swing meter.</p></li>
-        </ul></figcaption></figure>
-      <figure class="champ"><img src="img/c-emra.jpg" width="1040" height="580" loading="lazy" alt="Emra the Stormtalon, a winged valkyrie."><figcaption><h3>Emra the Stormtalon</h3><span class="label">Avian Valkyrie</span>
-        <ul class="kit">
-          <li class="k-p"><b>Stormwing Escort</b><span>Realm Power</span><p>She flies with her tee shot and steers it.</p></li>
-          <li class="k-s"><b>Stormtalon's Wrath</b><span>Signature</span><p>Blows each rival's next ball back from the hole.</p></li>
-          <li class="k-a"><b>Stormcaller</b><span>Ability</span><p>For the hole, the wind is behind her and in every rival's face.</p></li>
-          <li class="k-a"><b>Cyclone</b><span>Ability</span><p>A tornado stands short of the pin. It flings rival balls aside and throws hers on.</p></li>
-        </ul></figcaption></figure>
+    <div class="skins">
+      <figure class="skin"><figcaption><h3>Sylvara Moonbrook</h3><span class="label">Elf Ranger</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-elf-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Sylvara Moonbrook on the tee in her original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-elf-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Sylvara Moonbrook on the tee in her Autumn Court skin."><b>Autumn Court</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-elf-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Sylvara Moonbrook on the tee in her Moonlit Huntress skin."><b>Moonlit Huntress</b><span>Under par</span></div></div></figure>
+      <figure class="skin"><figcaption><h3>Malgrath the Unbound</h3><span class="label">Demon Warlord</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-demon-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Malgrath the Unbound on the tee in his original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-demon-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Malgrath the Unbound on the tee in his Ashen Tyrant skin."><b>Ashen Tyrant</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-demon-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Malgrath the Unbound on the tee in his Voidflame skin."><b>Voidflame</b><span>Under par</span></div></div></figure>
+      <figure class="skin"><figcaption><h3>Brokk Ironbeard</h3><span class="label">Dwarf Forgemaster</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-dwarf-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Brokk Ironbeard on the tee in his original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-dwarf-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Brokk Ironbeard on the tee in his Forge-Master skin."><b>Forge-Master</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-dwarf-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Brokk Ironbeard on the tee in his Mithril King skin."><b>Mithril King</b><span>Under par</span></div></div></figure>
+      <figure class="skin"><figcaption><h3>Grukka Bonecrusher</h3><span class="label">Orc Brute</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-orc-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Grukka Bonecrusher on the tee in his original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-orc-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Grukka Bonecrusher on the tee in his Bone Clan skin."><b>Bone Clan</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-orc-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Grukka Bonecrusher on the tee in his Iron Horde skin."><b>Iron Horde</b><span>Under par</span></div></div></figure>
+      <figure class="skin"><figcaption><h3>Vex the Hollow King</h3><span class="label">Undead Lich</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-lich-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Vex the Hollow King on the tee in his original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-lich-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Vex the Hollow King on the tee in his Bone Cardinal skin."><b>Bone Cardinal</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-lich-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Vex the Hollow King on the tee in his Emerald King skin."><b>Emerald King</b><span>Under par</span></div></div></figure>
+      <figure class="skin"><figcaption><h3>Archmage Thalorin</h3><span class="label">Wizard</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-wizard-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Archmage Thalorin on the tee in his original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-wizard-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Archmage Thalorin on the tee in his Royal Astronomer skin."><b>Royal Astronomer</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-wizard-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Archmage Thalorin on the tee in his White Wizard skin."><b>White Wizard</b><span>Under par</span></div></div></figure>
+      <figure class="skin"><figcaption><h3>Seraphine Dawnblade</h3><span class="label">Paladin</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-paladin-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Seraphine Dawnblade on the tee in her original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-paladin-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Seraphine Dawnblade on the tee in her Knight of the Rose skin."><b>Knight of the Rose</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-paladin-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Seraphine Dawnblade on the tee in her Dusk Templar skin."><b>Dusk Templar</b><span>Under par</span></div></div></figure>
+      <figure class="skin"><figcaption><h3>Fenrik Ashmane</h3><span class="label">Werewolf</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-wolf-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Fenrik Ashmane on the tee in his original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-wolf-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Fenrik Ashmane on the tee in his Winter Tracker skin."><b>Winter Tracker</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-wolf-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Fenrik Ashmane on the tee in his Blood Moon Alpha skin."><b>Blood Moon Alpha</b><span>Under par</span></div></div></figure>
+      <figure class="skin"><figcaption><h3>Emra the Stormtalon</h3><span class="label">Avian Valkyrie</span></figcaption><div class="looks"><div class="look l1"><img src="img/s-emra-0.jpg" width="450" height="600" loading="lazy" alt="In-game: Emra the Stormtalon on the tee in her original outfit."><b>Original</b><span>Default</span></div><div class="look l2"><img src="img/s-emra-1.jpg" width="450" height="600" loading="lazy" alt="In-game: Emra the Stormtalon on the tee in her Sunhawk skin."><b>Sunhawk</b><span>5 birdies</span></div><div class="look l3"><img src="img/s-emra-2.jpg" width="450" height="600" loading="lazy" alt="In-game: Emra the Stormtalon on the tee in her Tempest Raven skin."><b>Tempest Raven</b><span>Under par</span></div></div></figure>
     </div>
-    <p class="fine">Champion portraits are art from the opening cinematic.</p>
-  </div>
-</section>
-
-<section id="action" class="alt">
-  <div class="wrap">
-    <div class="plate"><span class="plate-n">02</span><div class="plate-t"><h2>Abilities in play</h2><span class="label">In-game, development build</span></div></div>
-    <p class="intro">The big ones stop the round for a few seconds and take the camera. All of these were shot on The Two Trees.</p>
-    <div class="shots three">
-      <figure class="shot"><img src="img/a-wyrm.jpg" width="1280" height="720" loading="lazy" alt="In-game: a red dragon with spread wings flies over the fairway toward a rival ball."><figcaption><b>Malgrath</b><strong>Wyrm of the Pit.</strong> Rival balls are left in ash, a bunker lie.</figcaption></figure>
-      <figure class="shot"><img src="img/a-judge.jpg" width="1280" height="720" loading="lazy" alt="In-game: a giant sword of golden light stands in the ground beside a tee."><figcaption><b>Seraphine</b><strong>Blade of Judgment.</strong> The leader's next stroke loses 30% power.</figcaption></figure>
-      <figure class="shot"><img src="img/a-cyc.jpg" width="1280" height="720" loading="lazy" alt="In-game: a dark tornado stands on the fairway short of the green."><figcaption><b>Emra</b><strong>Cyclone.</strong> It stands 45 yards short of the pin for the hole.</figcaption></figure>
-      <figure class="shot"><img src="img/a-moon.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tall streak of pale light, the Moonbow, stands beside an elf at the tee."><figcaption><b>Sylvara</b><strong>Moonbow.</strong> A bow of moonlight three times her height.</figcaption></figure>
-      <figure class="shot"><img src="img/a-ice.jpg" width="1280" height="720" loading="lazy" alt="In-game: a strip of blue ice with crystals runs down a fairway."><figcaption><b>Fenrik</b><strong>Glacier Run.</strong> A road of ice freezes ahead of the ball.</figcaption></figure>
-      <figure class="shot"><img src="img/a-leap.jpg" width="1280" height="720" loading="lazy" alt="In-game: an orc lands on the fairway in a ring of dust beside his ball."><figcaption><b>Grukka</b><strong>Warleap.</strong> He comes down beside his ball.</figcaption></figure>
-      <figure class="shot"><img src="img/a-crater.jpg" width="1280" height="720" loading="lazy" alt="In-game: an orc stands on the green beside a wide crater where the cup was."><figcaption><b>Grukka</b><strong>Crater Cup.</strong> Four feet wide, and only his ball drops.</figcaption></figure>
-      <figure class="shot"><img src="img/a-gate.jpg" width="1280" height="720" loading="lazy" alt="In-game: a ring-shaped gate of fire stands in front of a demon at the tee."><figcaption><b>Malgrath</b><strong>Hellgate.</strong> In this gate, out of another in the sky over the pin.</figcaption></figure>
-      <figure class="shot"><img src="img/a-mirrors.jpg" width="1280" height="720" loading="lazy" alt="In-game: panes of blue glass hang in the sky across the hole."><figcaption><b>Archmage</b><strong>Broken Mirrors.</strong> Panes hang across the approach.</figcaption></figure>
+    <p class="fine"><strong>In-game, development build.</strong> Each champion is shown on the tee of The Two Trees. The skin names are working names. Emra's wings change colour with her skin; the clubs, the Archmage's staff and Fenrik's beast form do not change yet.</p>
+    <div class="shots" style="margin-top:30px">
+      <figure class="shot"><img src="img/u2-skinrow.jpg" width="1640" height="920" loading="lazy" alt="In-game: the champion select screen. A row at the foot of the champion card reads Autumn Court, locked, five birdies with this champion, 0 of 5."><figcaption><b>Champion select</b>A row on the champion card steps through the looks. A locked one can still be looked at, and the card says in one line what earns it.</figcaption></figure>
+      <figure class="shot"><img src="img/u2-lobbyskin.jpg" width="1280" height="720" loading="lazy" alt="In-game: the online lobby. Sylvara stands by the water in her Autumn Court skin, with a row over her player plate naming the skin."><figcaption><b>Lobby</b>Online, the same row sits over your own plate, and the other players see the look you picked.</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section id="holes">
+<section id="holes" class="alt">
   <div class="wrap">
-    <div class="plate"><span class="plate-n">03</span><div class="plate-t"><h2>Three new holes, two rebuilt</h2><span class="label">The course is a full eighteen</span></div></div>
-    <p class="intro">Every champion now has two home holes. Each new hole started as a concept painting, and its models were made from that painting.</p>
+    <div class="plate"><span class="plate-n">02</span><div class="plate-t"><h2>Three holes pushed further</h2><span class="label">Holes 16, 17 and 18, second pass</span></div></div>
+    <p class="tagline"><span class="where dev">Since Test Build 20</span></p>
+    <p class="intro">The three newest holes were playable in Test Build 20 but not finished. Each has had a second pass.</p>
     <div class="holes">
-      <figure class="hole"><img src="img/n-h16.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee inside a mountain hall of golden dwarf statues, a stone bridge running under a giant hammer."><figcaption><div class="hn"><i>16</i><h3>Halls of the Great Forge</h3></div><span class="label">New &nbsp;&middot;&nbsp; Par 5, 534 yards &nbsp;&middot;&nbsp; Brokk's home</span><p>Inside the mountain, on stone bridges over rivers of molten metal. Giant hammers fall on a timer and they can hit your ball. A low shot through the Hammer Gate is the short way round.</p></figcaption></figure>
-      <figure class="hole"><img src="img/n-h17.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee on a giant banquet table, giants eating behind loaves of bread and golden goblets."><figcaption><div class="hn"><i>17</i><h3>The Giant's Feast</h3></div><span class="label">New &nbsp;&middot;&nbsp; Par 4, 449 yards</span><p>Played across a giants' banquet table. Bread makes the hills, spilled salt the bunkers and goblets the water. Giants sit eating along the table and others walk round it while you play.</p></figcaption></figure>
-      <figure class="hole"><img src="img/n-h18.jpg" width="1280" height="720" loading="lazy" alt="In-game: a timber tee deck on a green rise with palm trees and a ruined tower."><figcaption><div class="hn"><i>18</i><h3>The World Turtle</h3></div><span class="label">New &nbsp;&middot;&nbsp; Par 4, 451 yards</span><p>The hole lies on the shell of a giant turtle walking through the ocean. The sea streams past and islands go by as you play.</p></figcaption></figure>
+      <figure class="hole"><img src="img/h2-turtle.jpg" width="1280" height="720" loading="lazy" alt="In-game: a fairway sunk between the plates of a giant turtle's shell, with palms, a ruined tower and a hillside town beyond."><figcaption><div class="hn"><i>18</i><h3>The World Turtle</h3></div><span class="label">Reworked &nbsp;&middot;&nbsp; Par 4</span><p>The fairway is now dug into his shell, between plates grown over with moss, and the green lies in a bowl by his neck. He carries his head turned back, one eye on the players. He swims faster, and sea-green light shows in the seams of the shell.</p></figcaption></figure>
+      <figure class="hole"><img src="img/h2-forge.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee inside a vast mountain hall, a paved bridge running under a hammer gantry between colossal gold statues of dwarf kings."><figcaption><div class="hn"><i>16</i><h3>Halls of the Great Forge</h3></div><span class="label">Reworked &nbsp;&middot;&nbsp; Par 5 &nbsp;&middot;&nbsp; Brokk's home</span><p>The hall is far larger: eleven carved pillars up through the roof, colossal kings along the ledges, and a causeway behind the great doors. The hammer gantries are twice as tall and the hammers lift 40 yards, so there is room to aim a shot under them.</p></figcaption></figure>
+      <figure class="hole"><img src="img/h2-feast.jpg" width="1280" height="720" loading="lazy" alt="In-game: a giants' banquet table from above. A white cloth runner winds between loaves, goblets and plates to a green on a silver dish."><figcaption><div class="hn"><i>17</i><h3>The Giant's Feast</h3></div><span class="label">Reworked &nbsp;&middot;&nbsp; Par 4</span><p>The table was a straight line. The cloth runner now winds down it as a double dog-leg, round a great loaf in the middle, with folds in the cloth for ridges. The pool and two loaves were moved off the line, so a straight drive no longer hits bread or finds the water.</p></figcaption></figure>
     </div>
-    <div class="holes two">
-      <figure class="hole"><img src="img/n-h7.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee under tall trees at dusk, a paved way running to a lit elven city."><figcaption><div class="hn"><i>7</i><h3>Vale of Falling Waters</h3></div><span class="label">Rebuilt &nbsp;&middot;&nbsp; Par 5, now 700 yards &nbsp;&middot;&nbsp; Sylvara's home</span><p>Remade as the elves' capital, at dusk: you tee off under its gate. New models throughout, stone spans, a flowing sea of cloud, and elves and wildlife with their own animations.</p></figcaption></figure>
-      <figure class="hole"><img src="img/n-h10.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee facing a great colosseum across a ruined road at sunset."><figcaption><div class="hn"><i>10</i><h3>The Colosseum of Kings</h3></div><span class="label">Rebuilt &nbsp;&middot;&nbsp; Par 5, 514 yards</span><p>Rebuilt from nothing with a new set of models. A ruined road runs to the outer wall and you hit in through the breach. Inside: stands full of spectators, and flags that move with the game's own wind.</p></figcaption></figure>
+    <div class="shots three">
+      <figure class="shot"><img src="img/h2-turtle-top.jpg" width="1600" height="900" loading="lazy" alt="In-game: the turtle from high above, swimming through blue water. The course is a green strip up the middle of his mossy shell, and his head is turned back."><figcaption><b>The World Turtle</b>From above. The tee is at his tail and the green is by his neck.</figcaption></figure>
+      <figure class="shot"><img src="img/h2-coast.jpg" width="1600" height="900" loading="lazy" alt="In-game: a steep green coastal mountain with a town built up its side, seen across the sea from the turtle's shell."><figcaption><b>The coast</b>He now swims past eight coast mountains with towns built up their sides. They were modelled from a concept painting.</figcaption></figure>
+      <figure class="shot"><img src="img/h2-forge-deep.jpg" width="1280" height="720" loading="lazy" alt="In-game: inside the forge hall. A tall stone gantry holds a hammer over a round stone platform; behind it hang chains, a crucible and a carved stone face lit from within, over a floor of molten metal."><figcaption><b>The Great Forge</b>A hammer gantry at its new height, seen across the molten metal.</figcaption></figure>
     </div>
-    <p class="fine"><strong>Also on Throne of Ash (hole 9):</strong> the Colossus has a new rig. He stalks in, pounds the green, then sits the throne in front of the castle and heckles you for the rest of the hole. His lines are subtitles for now; the voice is not recorded.</p>
   </div>
 </section>
 
-<section id="entrance" class="alt">
+<section id="starfall">
   <div class="wrap">
-    <div class="plate"><span class="plate-n">04</span><div class="plate-t"><h2>A new entrance</h2><span class="label">Title screen and champion select</span></div></div>
+    <div class="plate"><span class="plate-n">03</span><div class="plate-t"><h2>The Archmage's home</h2><span class="label">And the rest of Test Build 20</span></div></div>
+    <p class="tagline"><span class="where in">In Test Build 20</span></p>
+    <p class="intro">Hole 11 was rebuilt as the Archmage's home, a pocket of space outside the world. The dragons and the giant eagles were made again so that they fly properly, and two older holes were filled out.</p>
     <div class="shots">
-      <figure class="shot"><img src="img/u-title.jpg" width="1640" height="920" loading="lazy" alt="In-game: the title screen with the gold logo over Crystal Mere and six menu buttons."><figcaption><b>Title screen</b>When the opening cinematic ends the camera comes down over Crystal Mere from high and wide, new title music starts on that frame, and the logo and buttons land on the music's beats.</figcaption></figure>
-      <figure class="shot"><img src="img/u-select.jpg" width="1640" height="920" loading="lazy" alt="In-game: the champion select screen with a compact card listing four abilities."><figcaption><b>Champion select</b>The description card is smaller so you see more of the champion, and each ability is a name and one short line.</figcaption></figure>
+      <figure class="shot"><img src="img/h2-portal.jpg" width="1280" height="720" loading="lazy" alt="In-game: a huge golden ring set with glowing runes stands in a starry void. Through it are floating islands, waterfalls and a volcano. A domed tower stands before it."><figcaption><b>The Starfall Isles</b>The Great Portal is 1,700 yards across and shows the shattered realms from the opening cinematic. His tower, three drifting libraries and two orreries stand round the hole.</figcaption></figure>
+      <figure class="shot"><img src="img/c2-dragon.jpg" width="1280" height="720" loading="lazy" alt="In-game: a purple dragon in level flight against the stars, wings spread, with a second dragon behind it."><figcaption><b>New dragons</b>The old dragons were upright sculptures that could only wobble. The new ones were modelled in level flight and given skeletons, so their wings beat and glide.</figcaption></figure>
+      <figure class="shot"><img src="img/c2-eagle.jpg" width="1280" height="720" loading="lazy" alt="In-game: a giant eagle gliding over a sea of cloud, wings spread and white tail fanned."><figcaption><b>Giant eagles</b>The eagles of Stormcrown Aerie stand on their peaks, take off, fly, glide and hover, each with its own motion.</figcaption></figure>
+      <figure class="shot"><img src="img/h2-spine.jpg" width="1280" height="720" loading="lazy" alt="In-game: the tee of Dragon's Spine. Malgrath stands on dark ground beside a giant ribcage, with glowing mushrooms, lava light and volcanoes close behind."><figcaption><b>Dragon's Spine</b>The volcano ring and the mesas were moved in to the edge of the ground, and the gap was filled with spires, lit mushrooms, ribs and lava light.</figcaption></figure>
     </div>
-    <p class="fine">The logo was redrawn at four times the resolution, with the dark haze round its letters gone. The title also has mist over the water, shafts of light, and drifting motes.</p>
+    <div class="notes" style="margin-top:34px">
+      <ul class="c-new">
+        <li><strong>An apprentice</strong> lives on the Starfall Isles. He greets you, points the way on each turn and works the teleport.</li>
+        <li><strong>Four dragons</strong> use the new rig: fire and frost, and an astral and a gold one that circle the Starfall Isles.</li>
+        <li><strong>A celebration for every champion</strong> when their ball drops. The Archmage moonwalks.</li>
+        <li><strong>Gloomgate Vale</strong> is laid out again: a winding fairway over four rises, and a two-tier green.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="play" class="alt">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">04</span><div class="plate-t"><h2>Abilities, smoothed</h2><span class="label">A review of all 36, and two ideas from older golf games</span></div></div>
+    <p class="tagline"><span class="where dev">Since Test Build 20</span></p>
+    <p class="intro">Every ability was filmed in play on one hole and the film was read frame by frame. Nine kinds of fault came out of it. The ones that were changed were filmed again.</p>
+    <div class="shots">
+      <figure class="shot"><img src="img/a2-swords.jpg" width="1280" height="720" loading="lazy" alt="In-game: Seraphine on the tee in golden light, nine swords hanging point-down from a ring of light around her."><figcaption><b>Seraphine</b><strong>Armor of the Dawn.</strong> Her nine swords circle her again, level and centred on her. They used to sit off-centre and cut through her.</figcaption></figure>
+      <figure class="shot"><img src="img/a2-landcam.jpg" width="1280" height="720" loading="lazy" alt="In-game: the landing camera on Crystal Mere. The view looks back from beside the green, the flag in front, as the ball comes down over the gallery and the pink trees."><figcaption><b>New</b><strong>Landing camera.</strong> On a plain shot to open ground the view cuts ahead and the ball comes down in front of you. It stays off for ability shots, woods and out of bounds. It has its own switch under Settings, Gameplay.</figcaption></figure>
+    </div>
+    <div class="notes" style="margin-top:34px">
+      <ul class="c-perf">
+        <li><strong>Graded approach calls (new).</strong> A shot that finds the green is called by how close it finishes: Stone Dead, Tight! or On the Green, with the feet left to the pin.</li>
+        <li><strong>Banners no longer stack.</strong> An ability's title drew over the drive distance, and the shot count drew over the Warp Stone's dice card.</li>
+        <li><strong>The camera no longer ends up inside a tree.</strong> Trees and bushes thin away as the camera nears them.</li>
+        <li><strong>Arcane Blink</strong> could drop the Archmage under a pine in deep rough. It now looks for fairway near its spot, and never puts him nearer the pin than before.</li>
+        <li><strong>Spire of Glass</strong> sinks as soon as he has struck, not in front of the next player's camera.</li>
+        <li><strong>Wyrm of the Pit:</strong> the camera stands further back and the whole dragon is in frame.</li>
+        <li><strong>Hellforged Driver and Spawn of Malgrath:</strong> the ball grows into a meteor, and the follow camera now stays outside it.</li>
+        <li><strong>Haunted Green:</strong> the ghosts keep clear of the camera on a short putt.</li>
+        <li><strong>Glacier Run</strong> lays pale, ragged ice in place of a hard white slab. <strong>The meteor's scorch</strong> has round sparks and glowing cracks in place of bright squares.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <section id="notes">
   <div class="wrap notes">
-    <div class="plate"><span class="plate-n">05</span><div class="plate-t"><h2>Patch notes</h2><span class="label">Everything since Test Build 18</span></div></div>
+    <div class="plate"><span class="plate-n">05</span><div class="plate-t"><h2>Patch notes</h2><span class="label">Everything since the 24 November update</span></div></div>
+
+    <h3 class="split"><span class="where in">In Test Build 20</span> Packaged on 24 November</h3>
 
     <div class="group c-new">
-      <div><span class="chip">New</span><h3>Added</h3><div class="count">8 additions</div></div>
+      <div><span class="chip">New</span><h3>Added</h3><div class="count">5 additions</div></div>
       <ul>
-        <li><strong>Three new holes:</strong> Halls of the Great Forge (16), The Giant's Feast (17) and The World Turtle (18). A full round is now eighteen holes.</li>
-        <li><strong>Eighteen new abilities,</strong> two for every champion, on <kbd>E</kbd> and <kbd>B</kbd>.</li>
-        <li><strong>Pit Fight,</strong> Grukka's new Signature: a ten-second brawl in third person. The loser takes a penalty stroke.</li>
-        <li><strong>A living gallery.</strong> Thirteen kinds of rigged spectators stand round every tee and green. Each has their own stance, fidgets and cheers, and they turn to watch the ball.</li>
-        <li><strong>Lobby champion select.</strong> Join and Host now go straight to a lobby where everyone picks on one screen and sees each other's cursor move, like a fighting game's select screen.</li>
-        <li><strong>Host game setup</strong> in the lobby: course length, Caddie Pip open or secret, mini-games, and a shot clock (off, 30, 60 or 90 seconds).</li>
-        <li><strong>A club set for every champion:</strong> 27 clubs sized to each champion's hands and theme, and a staff for the Archmage.</li>
-        <li><strong>Title music and reveal:</strong> a new title theme, and a camera move out of the opening cinematic timed to it.</li>
+        <li><strong>The Starfall Isles (hole 11) are the Archmage's home.</strong> The Earth is gone from the sky. In its place: the Great Portal, his tower, three libraries, two orreries and an apprentice.</li>
+        <li><strong>New dragons,</strong> modelled in flight and rigged: fire, frost, astral and gold.</li>
+        <li><strong>New giant eagles</strong> on Stormcrown Aerie, with standing, take-off, flying, gliding and hovering motions.</li>
+        <li><strong>A celebration for each champion</strong> when their ball drops.</li>
+        <li><strong>Flags wave.</strong> The pin's flag turns down the game's wind and moves with its strength. The banners on the Aerie's nests whip in a wind that never drops.</li>
       </ul>
     </div>
 
     <div class="group c-perf">
-      <div><span class="chip">Changed</span><h3>Reworked</h3><div class="count">11 changes</div></div>
+      <div><span class="chip">Changed</span><h3>Reworked</h3><div class="count">9 changes</div></div>
       <ul>
-        <li><strong>Every champion has exactly four abilities:</strong> a Realm Power, a Signature and two more.</li>
-        <li><strong>The Tome and the champion spellbooks are removed.</strong></li>
-        <li><strong>Signatures and abilities have three uses a round.</strong></li>
-        <li><strong>Realm Powers charge 25% slower.</strong></li>
-        <li><strong>Malgrath:</strong> Hellgate replaces Hellfire Drive.</li>
-        <li><strong>Archmage:</strong> Seer's Sight is removed. Broken Mirrors is his Realm Power, fired at a full charge.</li>
-        <li><strong>Vale of Falling Waters and The Colosseum of Kings</strong> are rebuilt from scratch.</li>
-        <li><strong>All 98 synthesised sounds are replaced by recordings.</strong> The harsh chime on Crystal Mere is gone; its sound is now a quiet ambient bed.</li>
-        <li><strong>Interface pass:</strong> one button style, one panel style, text centred in its boxes, and a fact shown once instead of three times.</li>
-        <li><strong>Every hole got an atmosphere pass</strong> against its concept painting, plus detail textures on rock and mountains.</li>
-        <li><strong>The sky-whale swims.</strong> It has a spine now and no longer holds a curl.</li>
+        <li><strong>Gloomgate Vale (hole 4) is laid out again:</strong> a winding fairway over four rises, a cut across it, and a two-tier green. Its water is now sludge.</li>
+        <li><strong>Dragon's Spine (hole 2):</strong> the volcano ring and the mesas stand at the edge of the ground, and the gap between is filled with spires, lit mushrooms, ribs and lava light.</li>
+        <li><strong>Lobby line-up:</strong> the champions stand where the camera can see all of them, on every hole. Small things in the way are hidden while the lobby is up.</li>
+        <li><strong>Lobby player icons</strong> are lit and captured again. They had looked half-drawn, then washed out.</li>
+        <li><strong>Starshard Arrow scatters wider:</strong> the five pieces fall within 13% of the carry (12 to 30 yards), up from 7.5%.</li>
+        <li><strong>The swing meter runs 8% slower.</strong></li>
+        <li><strong>The putting line</strong> draws about 70% of the way from the ball to the hole.</li>
+        <li><strong>Menu music is louder</strong> and plays through every screen before a match.</li>
+        <li><strong>The logo</strong> is the original art with its edges cleaned and its smudges removed. On the title it sits lower and the buttons sit higher.</li>
       </ul>
     </div>
 
     <div class="group c-fix">
       <div><span class="chip">Fixes</span><h3>Fixed</h3><div class="count">5 fixes</div></div>
       <ul>
-        <li><strong>Hall of the Fallen runs at 114 FPS, up from 63.</strong> Each flying creature's shadow was claiming 400 metres of shadow map every frame. Stormcrown Aerie, Eagle's Tarn and the Vale gained from the same fix.</li>
-        <li><strong>Zig-zag edges are smooth:</strong> island rims and shorelines no longer saw-tooth.</li>
-        <li><strong>Models sit level on slopes</strong> instead of hanging over them.</li>
-        <li><strong>Shorter wait between holes:</strong> champion rigs stay loaded from one hole to the next.</li>
-        <li><strong>Text in boxes sat low and off-centre</strong> across the menus. It is centred now.</li>
+        <li><strong>The "wall" on the far horizon.</strong> On every hole the cloud was smeared straight down in streaks where sky met ground. The sky now curves over a round world.</li>
+        <li><strong>Eagle nests hung in the air</strong> on Stormcrown Aerie. They stand on the ground.</li>
+        <li><strong>The Vale's temple:</strong> its stair and fountain overhung empty air. There is ground under them now.</li>
+        <li><strong>Clouds raced</strong> on the Vale, Stormcrown Aerie and Hall of the Fallen. They drift slower.</li>
+        <li><strong>Small interface faults:</strong> "1St Shot" reads "1st Shot", the score table no longer stretches across the screen, and the pin marker is drawn as one clean shape.</li>
+      </ul>
+    </div>
+
+    <h3 class="split"><span class="where dev">Since Test Build 20</span> In the development build</h3>
+
+    <div class="group c-new">
+      <div><span class="chip">New</span><h3>Added</h3><div class="count">5 additions</div></div>
+      <ul>
+        <li><strong>Eighteen champion skins,</strong> two for each champion, with a row on the champion card and over your lobby plate to choose one. A message tells you when you earn one.</li>
+        <li><strong>Landing camera,</strong> with a switch under Settings, Gameplay.</li>
+        <li><strong>Graded approach calls:</strong> Stone Dead, Tight! and On the Green, with the distance left in feet.</li>
+        <li><strong>A second menu song.</strong> The two take turns: when one ends the other starts.</li>
+        <li><strong>Eight coast mountains</strong> round the World Turtle.</li>
+      </ul>
+    </div>
+
+    <div class="group c-perf">
+      <div><span class="chip">Changed</span><h3>Reworked</h3><div class="count">8 changes</div></div>
+      <ul>
+        <li><strong>Halls of the Great Forge:</strong> a far larger hall, taller hammer gantries, and a corner map fitted to the course.</li>
+        <li><strong>The World Turtle:</strong> the fairway cut into his shell, his head turned back, a faster swim, an older-looking shell.</li>
+        <li><strong>The Giant's Feast:</strong> a winding table runner with folds in the cloth.</li>
+        <li><strong>The crowd reacts less often</strong> after shots and abilities. In a test round on the Great Forge, 5 of 14 reactions were let through.</li>
+        <li><strong>Seraphine's swords</strong> circle her, centred and clear of her body.</li>
+        <li><strong>Computer golfers plan with what they have armed.</strong> They allow for a power boost, lay up after a lost ball, and Malgrath keeps Spawn of Malgrath for holes long enough to want it.</li>
+        <li><strong>Aurora Fjord (hole 15):</strong> the green was a dark patch at night. It has a soft pool of aurora light.</li>
+        <li><strong>The Starfall Isles:</strong> an old ring-shaped landmark was showing as a black cut-out in front of the Great Portal. It is removed.</li>
+      </ul>
+    </div>
+
+    <div class="group c-fix">
+      <div><span class="chip">Fixes</span><h3>Fixed</h3><div class="count">6 fixes</div></div>
+      <ul>
+        <li><strong>The computer golfer hit out of bounds five times running</strong> on The Colosseum of Kings and took a 10. It was hitting harder after every lost ball. It now makes par there.</li>
+        <li><strong>Banners drawn on top of each other</strong> when an ability, a drive distance and a dice card came up together.</li>
+        <li><strong>Cameras inside trees, boulders and the gallery</strong> on several abilities and on the landing camera.</li>
+        <li><strong>A meteor ball swallowed the follow camera</strong> for a frame.</li>
+        <li><strong>Ghosts across the lens</strong> on a short putt under Haunted Green.</li>
+        <li><strong>"Her own ball"</strong> in the message when the Archmage plays a plundered Starshard Arrow. It says "his".</li>
       </ul>
     </div>
 
     <div class="group c-tool">
       <div><span class="chip">Under the hood</span><h3>Testing</h3><div class="count">4 checks</div></div>
       <ul>
-        <li><strong>Every ability has been played by computer golfers</strong> in automated rounds across all eighteen holes, with no errors or crashes.</li>
-        <li><strong>Two machines:</strong> rounds with abilities in play, where every shot's end position is compared between host and client. All matched.</li>
-        <li><strong>Nineteen menu and mode tests</strong> pass: menus, the four mini-games, the brawl, rematch, the Colossus, and map cycling.</li>
-        <li><strong>Hall of the Fallen was started 30 times</strong> after the shadow fix. The old driver hang did not return.</li>
+        <li><strong>All 36 abilities were filmed in play</strong> against a computer rival, and every changed one was filmed again after its fix.</li>
+        <li><strong>Holes 9 to 18 were each played start to finish</strong> by computer golfers in the development build. Every hole completed, with no hang.</li>
+        <li><strong>Skins:</strong> an eighteen-hole round was run against a scratch save file to check both unlock rules. No test wrote to a player's own save.</li>
+        <li><strong>Menu songs:</strong> 13 hand-overs in a row in a shortened run, the two songs in turn each time.</li>
       </ul>
     </div>
   </div>
 </section>
 
 <figure class="band">
-  <img src="img/k-vista.jpg" width="1600" height="893" loading="lazy" alt="Floating islands chained together above a golden storm: a temple isle, a volcano, and an ice shelf under an aurora.">
+  <img src="img/k-vista.jpg" width="1600" height="894" loading="lazy" alt="Floating islands chained together above a golden storm: a temple isle, a volcano, and an ice shelf under an aurora.">
   <figcaption><div class="wrap credit">Art from the opening cinematic</div></figcaption>
 </figure>
 
-<section id="scorecard">
+<section id="frames">
   <div class="wrap">
-    <div class="plate"><span class="plate-n">06</span><div class="plate-t"><h2>The scorecard</h2><span class="label">Frames per second, hole by hole</span></div></div>
-    <p class="intro">Every hole played start to finish. Development build, 1640&times;920, frame rate uncapped. "Before" is the Test Build 18 scorecard.</p>
-    <div class="key">
-      <span><i></i>Test Build 18</span>
-      <span><i class="k-a"></i>Gained since</span>
-      <span><i class="k-n"></i>New hole</span>
-      <span><i class="k-t"></i>60 FPS, the download build's cap</span>
-    </div>
-    <ol class="card">
-      <li class="row head"><span>Hole</span><span>Name</span><span class="axis"><span style="left:0">0</span><span style="left:25%">30</span><span style="left:50%">60</span><span style="left:75%">90</span></span><span class="v">Before &rarr; now</span><span class="d">Change</span></li>
-      <li class="row" style="--b:89;--a:92"><span class="n">1</span><span class="nm">Elderwood Gate</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">89<i>&rarr;</i><b>92</b></span><span class="d">+3</span></li>
-      <li class="row" style="--b:98;--a:101"><span class="n">2</span><span class="nm">Dragon's Spine</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">98<i>&rarr;</i><b>101</b></span><span class="d">+3</span></li>
-      <li class="row" style="--b:86;--a:95"><span class="n">3</span><span class="nm">Crystal Mere</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">86<i>&rarr;</i><b>95</b></span><span class="d">+9</span></li>
-      <li class="row" style="--b:95;--a:103"><span class="n">4</span><span class="nm">Gloomgate Vale</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">95<i>&rarr;</i><b>103</b></span><span class="d">+8</span></li>
-      <li class="row" style="--b:95;--a:97"><span class="n">5</span><span class="nm">Ironforge Deep</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">95<i>&rarr;</i><b>97</b></span><span class="d">+2</span></li>
-      <li class="row" style="--b:92;--a:92"><span class="n">6</span><span class="nm">Necropolis</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">93<i>&rarr;</i><b>92</b></span><span class="d even">&minus;1</span></li>
-      <li class="row" style="--b:86;--a:88"><span class="n">7</span><span class="nm">Vale of Falling Waters<small>Rebuilt</small></span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">86<i>&rarr;</i><b>88</b></span><span class="d">+2</span></li>
-      <li class="row" style="--b:87;--a:98"><span class="n">8</span><span class="nm">Eagle's Tarn</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">87<i>&rarr;</i><b>98</b></span><span class="d">+11</span></li>
-      <li class="row" style="--b:95;--a:98"><span class="n">9</span><span class="nm">Throne of Ash</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">95<i>&rarr;</i><b>98</b></span><span class="d">+3</span></li>
-      <li class="row" style="--b:101;--a:101"><span class="n">10</span><span class="nm">The Colosseum of Kings<small>Rebuilt</small></span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">107<i>&rarr;</i><b>101</b></span><span class="d even">&minus;6</span></li>
-      <li class="row" style="--b:105;--a:107"><span class="n">11</span><span class="nm">The Starfall Isles</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">105<i>&rarr;</i><b>107</b></span><span class="d">+2</span></li>
-      <li class="row" style="--b:96;--a:107"><span class="n">12</span><span class="nm">The Two Trees</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">96<i>&rarr;</i><b>107</b></span><span class="d">+11</span></li>
-      <li class="row" style="--b:97;--a:113"><span class="n">13</span><span class="nm">Stormcrown Aerie</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">97<i>&rarr;</i><b>113</b></span><span class="d">+16</span></li>
-      <li class="row" style="--b:63;--a:114"><span class="n">14</span><span class="nm">Hall of the Fallen</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">63<i>&rarr;</i><b>114</b></span><span class="d">+51</span></li>
-      <li class="row" style="--b:101;--a:101"><span class="n">15</span><span class="nm">Aurora Fjord</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">102<i>&rarr;</i><b>101</b></span><span class="d even">&minus;1</span></li>
-      <li class="row newhole" style="--b:0;--a:110"><span class="n">16</span><span class="nm">Halls of the Great Forge</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v"><b>110</b></span><span class="d nw">New</span></li>
-      <li class="row newhole" style="--b:0;--a:75"><span class="n">17</span><span class="nm">The Giant's Feast</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v"><b>75</b></span><span class="d nw">New</span></li>
-      <li class="row newhole" style="--b:0;--a:114"><span class="n">18</span><span class="nm">The World Turtle</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v"><b>114</b></span><span class="d nw">New</span></li>
-      <li class="row total" style="--b:93;--a:100"><span class="n">Avg</span><span class="nm">Holes 1 to 15</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">93<i>&rarr;</i><b>100</b></span><span class="d">+7</span></li>
+    <div class="plate"><span class="plate-n">06</span><div class="plate-t"><h2>Frame rates</h2><span class="label">Measured in the packaged builds</span></div></div>
+    <p class="tagline"><span class="where in">Test Builds 19 and 20</span></p>
+    <p class="intro">These are tee views in the packaged game: the camera at the tee for 25 seconds, at 1640&times;920 with the frame rate uncapped. It is a lighter test than the whole-hole scorecard in the <a href="update-2026-11-24.html#scorecard">24 November update</a>, so the two sets of numbers do not compare.</p>
+    <ol class="card tee">
+      <li class="row head"><span>Hole</span><span>Name</span><span class="axis"><span style="left:0">0</span><span style="left:25%">60</span><span style="left:50%">120</span><span style="left:75%">180</span></span><span class="v">Frames a second</span><span class="d">Build</span></li>
+      <li class="row" style="--a:136"><span class="n">1</span><span class="nm">Elderwood Gate</span><span class="bar"><i class="g"></i></span><span class="v"><b>136</b></span><span class="d even">19</span></li>
+      <li class="row" style="--a:168"><span class="n">2</span><span class="nm">Dragon's Spine</span><span class="bar"><i class="g"></i></span><span class="v"><b>168</b></span><span class="d even">20</span></li>
+      <li class="row" style="--a:181"><span class="n">4</span><span class="nm">Gloomgate Vale</span><span class="bar"><i class="g"></i></span><span class="v"><b>181</b></span><span class="d even">20</span></li>
+      <li class="row" style="--a:155"><span class="n">5</span><span class="nm">Ironforge Deep</span><span class="bar"><i class="g"></i></span><span class="v"><b>155</b></span><span class="d even">20</span></li>
+      <li class="row" style="--a:143"><span class="n">7</span><span class="nm">Vale of Falling Waters</span><span class="bar"><i class="g"></i></span><span class="v"><b>143</b></span><span class="d even">20</span></li>
+      <li class="row" style="--a:170"><span class="n">10</span><span class="nm">The Colosseum of Kings</span><span class="bar"><i class="g"></i></span><span class="v"><b>170</b></span><span class="d even">19</span></li>
+      <li class="row" style="--a:224"><span class="n">11</span><span class="nm">The Starfall Isles</span><span class="bar"><i class="g"></i></span><span class="v"><b>224</b></span><span class="d even">20</span></li>
+      <li class="row" style="--a:175"><span class="n">13</span><span class="nm">Stormcrown Aerie</span><span class="bar"><i class="g"></i></span><span class="v"><b>175</b></span><span class="d even">20</span></li>
+      <li class="row" style="--a:208"><span class="n">14</span><span class="nm">Hall of the Fallen</span><span class="bar"><i class="g"></i></span><span class="v"><b>208</b></span><span class="d even">19</span></li>
+      <li class="row" style="--a:228"><span class="n">16</span><span class="nm">Halls of the Great Forge<small>Reworked since</small></span><span class="bar"><i class="g"></i></span><span class="v"><b>228</b></span><span class="d even">19</span></li>
+      <li class="row" style="--a:125"><span class="n">17</span><span class="nm">The Giant's Feast<small>Reworked since</small></span><span class="bar"><i class="g"></i></span><span class="v"><b>125</b></span><span class="d even">19</span></li>
+      <li class="row" style="--a:198"><span class="n">18</span><span class="nm">The World Turtle<small>Reworked since</small></span><span class="bar"><i class="g"></i></span><span class="v"><b>198</b></span><span class="d even">19</span></li>
     </ol>
-    <p class="fine">This is not a like-for-like comparison: two holes were rebuilt and every hole gained a living gallery, an atmosphere pass and new sound since Test Build 18. The same hole measures about 5% either way from one run to the next, so the small changes are noise. The Giant's Feast is now the slowest hole, at 75.</p>
+    <p class="fine"><strong>What is not measured.</strong> Holes 16, 17 and 18 were timed before their rework, and the Great Forge is now much larger. Since Test Build 20 the material on every model was also changed so that trees can thin away near the camera. No hole has been timed again after either change.</p>
   </div>
 </section>
 
 <section id="gaps" class="alt">
   <div class="wrap">
-    <div class="plate"><span class="plate-n">07</span><div class="plate-t"><h2>Not yet verified</h2><span class="label">What to watch for in the next build</span></div></div>
+    <div class="plate"><span class="plate-n">07</span><div class="plate-t"><h2>Not yet verified</h2><span class="label">What to watch for</span></div></div>
     <div class="gaps">
-      <div class="gap"><h3>Nothing here is in a download yet</h3><p>All of it was built and measured on the development build. The download build caps at 60 FPS and has not been made or timed with these changes.</p></div>
-      <div class="gap"><h3>Two abilities online</h3><p>Hellgate and Crater Cup have been played in single-machine rounds only. Every other new ability has been played with a host and a joining client.</p></div>
-      <div class="gap"><h3>Title music level</h3><p>The new title theme was set to the old loop's level by meter, not by ear. If it is too quiet or too loud, say so.</p></div>
-      <div class="gap"><h3>The Vale at dusk</h3><p>Hole 7 is set at dusk. The fairways may be too dark to read. Tell us if you lose the ball.</p></div>
-      <div class="gap"><h3>Elderwood Gate hang</h3><p>A rare graphics-driver hang in the first seconds of hole 1 is still open on the development build. It did not occur in this round of testing.</p></div>
-      <div class="gap"><h3>Balance</h3><p>The new abilities' numbers are first picks. If one is far too strong or never worth pressing, name it.</p></div>
+      <div class="gap"><h3>Test Build 20 had no full play test</h3><p>Its title screen and six tee views were checked and nothing crashed. The automated round was started three times and stopped each time, so it never finished on the final build.</p></div>
+      <div class="gap"><h3>Nothing since is packaged</h3><p>Sections 01, 02 and 04 are in the development build only. They have not been built into a download or timed.</p></div>
+      <div class="gap"><h3>Four ability changes not seen</h3><p>The Pit Fight camera held inside the stakes, Stormtalon's camera kept above ground, the Cyclone's funnel, and the landing camera's rule for deep rough were changed but did not come up in a test clip.</p></div>
+      <div class="gap"><h3>Skins online</h3><p>A joining player's skin shows on the host's screen. Their birdie count was followed over one hole only, and nobody has yet earned a skin in a real round.</p></div>
+      <div class="gap"><h3>Menu songs, by ear</h3><p>The hand-over between the two songs was tested in a shortened run and by meter. Nobody has listened to a whole song end and the next begin.</p></div>
+      <div class="gap"><h3>First picks</h3><p>The skin names, the five-birdie rule and the abilities' numbers are first picks. If a skin is too easy or too hard to earn, or an ability is never worth pressing, say so.</p></div>
+      <div class="gap"><h3>Two abilities online</h3><p>Hellgate and Crater Cup have still been played on one machine only.</p></div>
+      <div class="gap"><h3>Elderwood Gate hang</h3><p>A rare graphics-driver hang in the first seconds of hole 1 is still open on the development build.</p></div>
+      <div class="gap"><h3>The Colossus has no voice</h3><p>His heckles on Throne of Ash are still subtitles. The lines are not recorded.</p></div>
     </div>
   </div>
 </section>
@@ -560,12 +587,12 @@ footer .art::after{content:"";position:absolute;inset:0;background:linear-gradie
 </main>
 
 <footer>
-  <div class="art"><img src="img/k-green.jpg" width="1600" height="893" loading="lazy" alt="A golf ball rolling toward a golden cup at sunset while a dragon crosses the sky."></div>
+  <div class="art"><img src="img/k-green.jpg" width="1600" height="894" loading="lazy" alt="A golf ball rolling toward a golden cup at sunset while a dragon crosses the sky."></div>
   <div class="wrap sign">
-    <img src="img/logo2.png" width="1210" height="234" loading="lazy" alt="Realmbreaker Golf">
+    <img src="img/logo3.png" width="1210" height="234" loading="lazy" alt="Realmbreaker Golf">
     <div class="tour">Tour of the Shattered Realms</div>
     <div class="soon">Coming soon</div>
-    <p class="meta">Dev update &nbsp;&middot;&nbsp; 24 November 2026 &nbsp;&middot;&nbsp; <a href="test18.html">Test Build 18 patch notes</a></p>
+    <p class="meta">Dev update &nbsp;&middot;&nbsp; 25 November 2026 &nbsp;&middot;&nbsp; Earlier: <a href="update-2026-11-24.html">24 November update</a> (the nine kits, all 36 abilities) &nbsp;&middot;&nbsp; <a href="test18.html">Test Build 18 patch notes</a></p>
   </div>
 </footer>
 

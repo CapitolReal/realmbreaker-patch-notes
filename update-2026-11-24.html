@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Realmbreaker Golf: Dev Update, 24 November 2026</title>
+<meta name="description" content="Since Test Build 18: the course grows to eighteen holes, every champion gets a kit of four abilities, and the game has a new entrance.">
+<meta name="theme-color" content="#f2c75b">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Realmbreaker Golf">
+<meta property="og:title" content="Dev Update: eighteen holes, four abilities each">
+<meta property="og:description" content="Three new holes, two rebuilt, a kit of four abilities for every champion, a living gallery, lobby champion select and a new title screen. Coming in the next test build.">
+<meta property="og:url" content="https://capitolreal.github.io/realmbreaker-patch-notes/">
+<meta property="og:image" content="https://capitolreal.github.io/realmbreaker-patch-notes/img/t-hero.jpg">
+<meta property="og:image:width" content="1640">
+<meta property="og:image:height" content="585">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0a0f0d;
+  --bg-2:#0f1713;
+  --panel:#141e19;
+  --panel-2:#1a2620;
+  --ink:#ece6d6;
+  --ink-dim:#a7ac9d;
+  --ink-faint:#737a6e;
+  --gold:#f2c75b;
+  --gold-hi:#ffe09a;
+  --gold-deep:#b58430;
+  --line:rgba(242,199,91,.24);
+  --line-soft:rgba(236,230,214,.10);
+  --fairway:#8fd16a;
+  --plate-a:#6f9f4c;
+  --plate-b:#3c6a2c;
+  --ember:#ff8a52;
+  --steel:#8fbbe0;
+  --wrap:1180px;
+  --gut:clamp(18px,4vw,40px);
+  --font:"Archivo",system-ui,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--font);font-size:17px;line-height:1.6;font-stretch:100%;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+::selection{background:var(--gold);color:#17120a}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.label{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--gold)}
+.dim{color:var(--ink-dim)}
+p{margin:0 0 1em;max-width:65ch}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(10,15,13,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:62px}
+.top img{height:30px;width:auto}
+.top nav{display:flex;gap:24px;margin-left:auto}
+.top nav a{text-decoration:none;font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--ink-dim);padding:6px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.top nav a:hover{color:var(--gold-hi);border-color:var(--gold)}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+.build{font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:#17120a;background:linear-gradient(180deg,var(--gold-hi),var(--gold));padding:5px 10px 4px;border-radius:3px;white-space:nowrap}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:#06090a}
+.hero-art{position:relative}
+.hero-art img{width:100%;aspect-ratio:1640/585;max-height:640px;object-fit:cover;object-position:50% 40%}
+.hero-art::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(10,15,13,.30) 0%,rgba(10,15,13,0) 14%,rgba(10,15,13,0) 58%,rgba(10,15,13,.80) 86%,var(--bg) 100%)}
+.hero-copy{position:relative;margin-top:clamp(-120px,-8vw,-24px);padding-bottom:44px}
+.hero h1{
+  margin:10px 0 18px;font-weight:900;font-style:italic;font-stretch:125%;text-transform:uppercase;
+  font-size:clamp(33px,6vw,78px);line-height:.96;letter-spacing:-.01em;text-wrap:balance;
+  text-shadow:0 3px 26px rgba(0,0,0,.75);
+}
+.hero h1 em{font-style:inherit;background:linear-gradient(180deg,var(--gold-hi) 10%,var(--gold) 55%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 3px 14px rgba(0,0,0,.7))}
+.hero .lede{font-size:clamp(17px,1.5vw,20px);color:var(--ink);max-width:60ch;text-shadow:0 1px 12px rgba(0,0,0,.8)}
+.credit{font-stretch:75%;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.notice{display:inline-block;margin:6px 0 0;padding:10px 16px;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;background:rgba(20,30,25,.86);font-size:15.5px;color:var(--ink);max-width:70ch}
+.notice strong{color:var(--gold-hi);font-weight:700}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,var(--panel-2),var(--panel));position:relative;margin-top:26px}
+.stats::before,.stats::after,.plate::before,.plate::after{content:"";position:absolute;top:50%;width:9px;height:9px;background:var(--gold);transform:translateY(-50%) rotate(45deg);box-shadow:0 0 0 2px var(--bg)}
+.stats::before,.plate::before{left:-5px}
+.stats::after,.plate::after{right:-5px}
+.stat{padding:22px 22px 20px;border-left:1px solid var(--line-soft)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font-weight:900;font-style:italic;font-stretch:112%;font-size:clamp(24px,2.7vw,36px);line-height:1.05;white-space:nowrap}
+.stat b i{font-style:normal;font-weight:500;color:var(--gold);padding:0 .12em}
+.stat b span{color:var(--ink-faint)}
+.stat .label{display:block;margin-top:8px}
+.stat small{display:block;color:var(--ink-dim);font-size:14px;line-height:1.4;margin-top:2px}
+.fine{font-size:14.5px;color:var(--ink-dim);margin-top:14px;max-width:78ch}
+.fine strong{color:var(--ink);font-weight:600}
+
+/* sections */
+section{padding:clamp(54px,7vw,96px) 0}
+.alt{background:
+  repeating-linear-gradient(115deg,rgba(143,209,106,.028) 0 46px,rgba(143,209,106,0) 46px 92px),
+  linear-gradient(180deg,var(--bg-2),var(--bg));
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.plate{position:relative;display:inline-flex;align-items:stretch;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#26342c,#131b17);margin-bottom:26px;max-width:100%}
+.plate-n{display:grid;place-items:center;min-width:74px;padding:0 14px;border-radius:9px 0 0 9px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:118%;font-size:32px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.45)}
+.plate-t{padding:11px 26px 10px 18px}
+.plate h2{margin:0;font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:clamp(19px,2.4vw,27px);line-height:1.1;letter-spacing:.01em}
+.plate .label{font-size:12.5px;color:var(--ink-dim)}
+.intro{font-size:18px;color:var(--ink);margin-bottom:30px}
+
+/* rules strip */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 30px}
+.rule{border:1px solid var(--line-soft);border-top:3px solid var(--c);border-radius:6px;padding:16px 18px;background:var(--panel)}
+.rule h3{margin:0 0 4px;font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:16px;color:var(--c)}
+.rule p{margin:0;color:var(--ink-dim);font-size:15.5px}
+.rule kbd,.notes kbd{font-family:inherit;font-weight:700;font-size:.82em;color:#17120a;background:var(--ink);border-radius:4px;padding:1px 7px 0;margin:0 2px}
+.r-p{--c:var(--gold)} .r-s{--c:var(--steel)} .r-a{--c:var(--fairway)}
+
+/* notes */
+.film ul,.notes ul{list-style:none;margin:0;padding:0}
+.film li,.notes li{position:relative;padding:0 0 0 22px;margin:0 0 12px;max-width:68ch}
+.film li::before,.notes li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.group{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(18px,4vw,56px);padding:30px 0;border-top:1px solid var(--line-soft)}
+.group:first-of-type{border-top:1px solid var(--line)}
+.group h3{margin:0;font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:20px;line-height:1.15}
+.chip{display:inline-flex;align-items:center;gap:8px;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--c);margin-bottom:10px}
+.chip::before{content:"";width:8px;height:8px;background:var(--c);transform:rotate(45deg)}
+.group .count{font-size:14px;color:var(--ink-faint);margin-top:6px}
+.notes li{margin-bottom:14px}
+.notes li::before{background:var(--c)}
+.notes li strong{color:#fff;font-weight:700}
+.c-new{--c:var(--fairway)} .c-perf{--c:var(--gold)} .c-fix{--c:var(--ember)} .c-tool{--c:var(--steel)}
+
+/* art band */
+.band{position:relative;margin:0}
+.band img{width:100%;aspect-ratio:21/8;object-fit:cover;object-position:50% 42%}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0,rgba(10,15,13,0) 22%,rgba(10,15,13,0) 60%,var(--bg) 100%)}
+.band figcaption{position:absolute;z-index:1;left:0;right:0;bottom:16px;text-align:right}
+
+/* scorecard */
+.card{list-style:none;margin:0;padding:6px 0;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,var(--panel-2),var(--panel))}
+.row{display:grid;grid-template-columns:52px minmax(150px,1.15fr) minmax(0,3fr) 132px 70px;align-items:center;gap:0 18px;padding:9px 22px 9px 14px;border-top:1px solid var(--line-soft)}
+.row:first-child{border-top:0}
+.row .n{justify-self:start;display:grid;place-items:center;width:42px;height:30px;border-radius:5px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:112%;font-size:17px;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.row .nm{font-weight:600;font-size:16px;line-height:1.25}
+.row .nm small{display:block;font-weight:500;font-size:12.5px;color:var(--ink-faint);font-stretch:75%;text-transform:uppercase;letter-spacing:.12em}
+.bar{position:relative;height:12px;background:rgba(255,255,255,.055);border-radius:2px}
+.bar .b,.bar .g{position:absolute;top:0;bottom:0}
+.bar .b{left:0;width:calc(var(--b)/120*100%);background:#55635a;border-radius:2px 0 0 2px}
+.bar .g{left:calc(var(--b)/120*100%);width:calc((var(--a) - var(--b))/120*100%);background:linear-gradient(90deg,var(--gold-deep),var(--gold));border-radius:0 2px 2px 0}
+.row.newhole .bar .g{background:linear-gradient(90deg,var(--plate-b),var(--fairway))}
+.bar::after{content:"";position:absolute;left:50%;top:-5px;bottom:-5px;width:1px;background:rgba(236,230,214,.34)}
+.row .v{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;color:var(--ink-dim)}
+.row .v i{font-style:normal;color:var(--ink-faint);padding:0 .3em}
+.row .v b{color:#fff;font-weight:800;font-size:18px}
+.row .d{text-align:right;font-weight:800;font-stretch:112%;font-style:italic;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+.row .d.even{color:var(--ink-faint);font-style:normal;font-stretch:75%;letter-spacing:.12em;font-size:13px}
+.row .d.nw{color:var(--fairway);font-style:normal;font-stretch:75%;letter-spacing:.12em;font-size:13px;text-transform:uppercase}
+.row.head{padding-top:12px;padding-bottom:8px}
+.row.head span{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--ink-faint)}
+.axis{position:relative;height:16px}
+.axis span{position:absolute;top:0;transform:translateX(-50%)}
+.axis span:first-child{transform:none}
+.row.total{border-top:1px solid var(--line);background:rgba(242,199,91,.05);padding-top:13px;padding-bottom:13px}
+.row.total .nm{font-weight:800;font-stretch:112%;text-transform:uppercase}
+.row.total .n{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#17120a;text-shadow:none;font-size:13px;font-stretch:75%;font-style:normal;letter-spacing:.08em}
+.key{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 16px;font-size:14px;color:var(--ink-dim)}
+.key span{display:inline-flex;align-items:center;gap:8px}
+.key i{width:22px;height:10px;border-radius:2px;background:#55635a}
+.key .k-a{background:linear-gradient(90deg,var(--gold-deep),var(--gold))}
+.key .k-n{background:linear-gradient(90deg,var(--plate-b),var(--fairway))}
+.key .k-t{width:1px;height:16px;background:rgba(236,230,214,.5);border-radius:0}
+
+/* champions and their kits */
+.champs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.champ{margin:0;border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;background:var(--panel);transition:border-color .2s,transform .2s}
+.champ:hover{border-color:var(--line);transform:translateY(-3px)}
+.champ img{width:100%;aspect-ratio:1040/580;object-fit:cover}
+.champ figcaption{padding:15px 18px 18px;border-top:1px solid var(--line)}
+.champ h3{margin:0;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:17px;line-height:1.2}
+.champ .label{display:block;margin:3px 0 0;font-size:12.5px}
+.kit{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:11px}
+.kit li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;align-items:baseline;padding-left:11px;border-left:2px solid var(--c)}
+.kit b{font-weight:800;font-stretch:108%;text-transform:uppercase;font-size:14.5px;line-height:1.25;color:#fff}
+.kit span{font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--c);white-space:nowrap}
+.kit p{grid-column:1/-1;margin:1px 0 0;color:var(--ink-dim);font-size:14.5px;line-height:1.4;font-style:normal}
+.k-p{--c:var(--gold)} .k-s{--c:var(--steel)} .k-a{--c:var(--fairway)}
+
+/* galleries */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.shots.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.shot{margin:0}
+.shot img{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line-soft);border-radius:6px}
+.shot figcaption{padding-top:9px;font-size:15px;color:var(--ink-dim)}
+.shot figcaption b{display:block;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--gold)}
+.shot figcaption strong{color:var(--ink);font-weight:700}
+
+/* holes */
+.holes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:20px}
+.holes.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hole{margin:0;border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;background:var(--panel)}
+.hole img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.hole figcaption{padding:16px 18px 18px;border-top:1px solid var(--line)}
+.hole .hn{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.hole .hn i{display:grid;place-items:center;min-width:42px;height:30px;padding:0 6px;border-radius:5px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:112%;font-size:17px;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.hole h3{margin:0;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:17px;line-height:1.2}
+.hole .label{display:block;font-size:12.5px;margin-bottom:8px}
+.hole p{margin:0;color:var(--ink-dim);font-size:15.5px}
+
+/* known gaps */
+.gaps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.gap{border:1px solid var(--line-soft);border-left:3px solid var(--ember);border-radius:6px;padding:20px 22px;background:var(--panel)}
+.gap h3{margin:0 0 6px;font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:16px}
+.gap p{margin:0;color:var(--ink-dim);font-size:16px}
+
+/* footer */
+footer{position:relative;background:#06090a;border-top:1px solid var(--line)}
+footer .art img{width:100%;aspect-ratio:21/8;object-fit:cover;object-position:50% 62%}
+footer .art{position:relative}
+footer .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,9,10,.35),rgba(6,9,10,0) 30%,rgba(6,9,10,.2) 60%,#06090a 100%)}
+.sign{position:relative;margin-top:clamp(-64px,-4vw,-14px);padding-bottom:46px;text-align:center}
+.sign img{height:clamp(42px,6vw,70px);width:auto;margin:0 auto 14px;filter:drop-shadow(0 6px 22px rgba(0,0,0,.8))}
+.sign .tour{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.3em;font-size:13px;color:var(--ink)}
+.sign .soon{font-weight:900;font-style:italic;font-stretch:125%;text-transform:uppercase;font-size:clamp(24px,3.6vw,40px);margin:12px 0 6px;color:var(--gold)}
+.sign .meta{margin:18px auto 0;color:var(--ink-faint);font-size:13.5px;max-width:none}
+.sign .meta a{color:var(--ink-dim)}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero-art img{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*:nth-child(2){animation-delay:.12s}
+  .hero-copy>*:nth-child(3){animation-delay:.24s}
+  .hero-copy>*:nth-child(4){animation-delay:.38s}
+  .hero-copy>*:nth-child(5){animation-delay:.5s}
+  @keyframes settle{from{transform:scale(1.07);filter:brightness(.55)}}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.champ{transition:none}}
+
+@media (max-width:980px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line-soft)}
+  .champs,.holes,.shots.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rules{grid-template-columns:1fr}
+  .group{grid-template-columns:1fr;gap:14px}
+  .gaps{grid-template-columns:1fr}
+  .row{grid-template-columns:46px minmax(120px,1fr) minmax(0,1.6fr) 118px 58px;gap:0 12px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .top nav{display:none}
+  .top .wrap{justify-content:space-between;height:56px}
+  .top img{height:25px}
+  html{scroll-padding-top:66px}
+  .row{grid-template-columns:42px minmax(0,1fr) auto;grid-template-areas:"n nm d" "n bar bar" "n v v";gap:5px 12px;padding:11px 14px 11px 12px;align-items:center}
+  .row .n{grid-area:n;align-self:start;width:36px}
+  .row .nm{grid-area:nm}.row .bar,.row .axis{grid-area:bar}.row .v{grid-area:v;text-align:left;font-size:14.5px}.row .d{grid-area:d}
+  .row .v b{font-size:15.5px}
+  .row.head{grid-template-areas:"n nm d" "n bar bar"}
+  .row.head .v{display:none}
+  .shots,.shots.three,.gaps,.holes,.holes.two{grid-template-columns:1fr}
+  .band img,footer .art img{aspect-ratio:16/9}
+  .band figcaption{position:static;text-align:left;padding-top:6px}
+}
+@media (max-width:540px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-left:0;padding:16px 18px}
+  .stat:nth-child(n+2){border-top:1px solid var(--line-soft)}
+  .champs{grid-template-columns:1fr}
+  .plate-n{min-width:58px;font-size:25px}
+  .plate-t{padding:9px 18px 8px 14px}
+  .build{font-size:11px}
+  .hero .label{letter-spacing:.07em;font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <a href="#top" aria-label="Realmbreaker Golf, top of page"><img src="img/logo2.png" width="1210" height="234" alt="Realmbreaker Golf"></a>
+    <nav aria-label="Sections">
+      <a href="#kits">Kits</a>
+      <a href="#action">Abilities</a>
+      <a href="#holes">Holes</a>
+      <a href="#entrance">Title</a>
+      <a href="#notes">Notes</a>
+      <a href="#scorecard">Scorecard</a>
+    </nav>
+    <span class="build">Dev Update</span>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-art">
+    <img src="img/t-hero.jpg" width="1640" height="585" alt="The game's title screen: the Realmbreaker Golf logo in gold over a glowing crystal lake ringed with pink and blue trees, under an aurora.">
+  </div>
+  <div class="wrap hero-copy">
+    <div class="label">Dev update &nbsp;&middot;&nbsp; 24 November 2026 &nbsp;&middot;&nbsp; Built since Test Build 18</div>
+    <h1>Eighteen holes.<br><em>Four abilities each.</em></h1>
+    <p class="lede">Since Test Build 18 the course has grown to a full eighteen, every champion has a kit of four abilities, the galleries have come alive, and the game has a new entrance.</p>
+    <p class="notice"><strong>An earlier update.</strong> This page is as it was written on 24 November, before Test Builds 19 and 20 were packaged. <a href="./">Read the latest update.</a></p>
+
+    <div class="stats">
+      <div class="stat"><b><span>15</span><i>&rarr;</i>18</b><span class="label">Holes</span><small>three new, two rebuilt from scratch</small></div>
+      <div class="stat"><b>36</b><span class="label">Abilities</span><small>four for each of the nine champions</small></div>
+      <div class="stat"><b>98</b><span class="label">Sounds re-recorded</span><small>every synthesised sound replaced</small></div>
+      <div class="stat"><b><span>63</span><i>&rarr;</i>114</b><span class="label">FPS, Hall of the Fallen</span><small>was the slowest hole on the course</small></div>
+    </div>
+    <p class="fine"><strong>How frame rates were measured:</strong> on the development build at 1640&times;920, with the frame rate uncapped. <strong>The download is capped at 60 FPS</strong>, and none of these numbers has been measured in a download build yet.</p>
+  </div>
+</header>
+
+<main>
+
+<section id="kits">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">01</span><div class="plate-t"><h2>The nine kits</h2><span class="label">Four abilities for every champion</span></div></div>
+    <p class="intro">The shared Tome and the champion spellbooks are gone. In their place every champion has four abilities of their own.</p>
+    <div class="rules">
+      <div class="rule r-p"><h3>Realm Power</h3><p>Charges as you play, now 25% slower than in Test Build 18. Fire it with <kbd>F</kbd> at a full meter.</p></div>
+      <div class="rule r-s"><h3>Signature</h3><p>Three uses a round, on <kbd>R</kbd>. No charging.</p></div>
+      <div class="rule r-a"><h3>Two abilities</h3><p>Three uses each a round, on <kbd>E</kbd> and <kbd>B</kbd>. All eighteen are new since Test Build 18.</p></div>
+    </div>
+    <div class="champs">
+      <figure class="champ"><img src="img/c-elf.jpg" width="1040" height="580" loading="lazy" alt="Sylvara Moonbrook, an elf ranger, on a forest fairway."><figcaption><h3>Sylvara Moonbrook</h3><span class="label">Elf Ranger</span>
+        <ul class="kit">
+          <li class="k-p"><b>Windwalker</b><span>Realm Power</span><p>Her eagle carries the ball on toward the pin.</p></li>
+          <li class="k-s"><b>Starshard Arrow</b><span>Signature</span><p>Splits her ball in five. She picks which one to play.</p></li>
+          <li class="k-a"><b>Moonbow</b><span>Ability</span><p>The ball flies as an arrow: no wind, through the trees, and it sticks where it lands.</p></li>
+          <li class="k-a"><b>Fey Crossing</b><span>Ability</span><p>Two white stags swap her ball with the rival ball nearest the hole.</p></li>
+        </ul></figcaption></figure>
+      <figure class="champ"><img src="img/c-demon.jpg" width="1040" height="580" loading="lazy" alt="Malgrath the Unbound, a horned demon warlord in molten armour."><figcaption><h3>Malgrath the Unbound</h3><span class="label">Demon Warlord</span>
+        <ul class="kit">
+          <li class="k-p"><b>Hellgate</b><span>Realm Power</span><p>His ball flies into a gate of fire and falls out of another in the sky over the pin. Replaces Hellfire Drive.</p></li>
+          <li class="k-s"><b>Spawn of Malgrath</b><span>Signature</span><p>+32% power on his next full shot.</p></li>
+          <li class="k-a"><b>Hellforged Driver</b><span>Ability</span><p>+23% off the tee, and no wind can touch it.</p></li>
+          <li class="k-a"><b>Wyrm of the Pit</b><span>Ability</span><p>His dragon flies the hole and burns every rival ball into ash.</p></li>
+        </ul></figcaption></figure>
+      <figure class="champ"><img src="img/c-dwarf.jpg" width="1040" height="580" loading="lazy" alt="Brokk Ironbeard, a dwarf forgemaster with a forged club."><figcaption><h3>Brokk Ironbeard</h3><span class="label">Dwarf Forgemaster</span>
+        <ul class="kit">
+          <li class="k-p"><b>Stonebreaker</b><span>Realm Power</span><p>No lie penalty, +15% power, and gold where the ball stops.</p></li>
+          <li class="k-s"><b>Deep Delve</b><span>Signature</span><p>The ball tunnels under every hazard and tree.</p></li>
+          <li class="k-a"><b>Deepanvil Fortress</b><span>Ability</span><p>A dwarven wall rises behind his ball and stands for the hole.</p></li>
+          <li class="k-a"><b>Minecart Express</b><span>Ability</span><p>Rails to the cup. The ball rides them in.</p></li>
+        </ul></figcaption></figure>
+      <figure class="champ"><img src="img/c-orc.jpg" width="1040" height="580" loading="lazy" alt="Grukka Bonecrusher, a huge orc gripping a club."><figcaption><h3>Grukka Bonecrusher</h3><span class="label">Orc Brute</span>
+        <ul class="kit">
+          <li class="k-p"><b>Bonecrusher's Rage</b><span>Realm Power</span><p>+40% power, and the landing throws rival balls back.</p></li>
+          <li class="k-s"><b>Pit Fight</b><span>Signature</span><p>Drags a rival into a pit for a ten-second brawl. The loser takes a stroke.</p></li>
+          <li class="k-a"><b>Warleap</b><span>Ability</span><p>He leaps the length of his shot after the ball. That stroke does not count.</p></li>
+          <li class="k-a"><b>Crater Cup</b><span>Ability</span><p>Smashes the cup into a crater four feet wide, for him alone.</p></li>
+        </ul></figcaption></figure>
+      <figure class="champ"><img src="img/c-lich.jpg" width="1040" height="580" loading="lazy" alt="Vex the Hollow King, a crowned undead lich."><figcaption><h3>Vex the Hollow King</h3><span class="label">Undead Lich</span>
+        <ul class="kit">
+          <li class="k-p"><b>Grasp of the Hollow King</b><span>Realm Power</span><p>A bone arm throws the ball half the way home.</p></li>
+          <li class="k-s"><b>Hands of the Grave</b><span>Signature</span><p>Skeleton hands push his putt into the cup.</p></li>
+          <li class="k-a"><b>Haunted Green</b><span>Ability</span><p>Ghosts tug at every rival putt on the green.</p></li>
+          <li class="k-a"><b>Hollow Throne</b><span>Ability</span><p>He sits a throne of bone and plays from anywhere within 20 yards.</p></li>
+        </ul></figcaption></figure>
+      <figure class="champ"><img src="img/c-wizard.jpg" width="1040" height="580" loading="lazy" alt="Archmage Thalorin, a wizard in star-patterned robes."><figcaption><h3>Archmage Thalorin</h3><span class="label">Wizard</span>
+        <ul class="kit">
+          <li class="k-p"><b>Broken Mirrors</b><span>Realm Power</span><p>A wall of glass hangs before the green. Rival balls break a pane and drop. Replaces Seer's Sight.</p></li>
+          <li class="k-s"><b>Arcane Blink</b><span>Signature</span><p>Teleports the ball 60% of the way, no stroke.</p></li>
+          <li class="k-a"><b>Spire of Glass</b><span>Ability</span><p>A crystal tower lifts him: +40% carry from its top.</p></li>
+          <li class="k-a"><b>Arcane Plunder</b><span>Ability</span><p>He plays any other champion's Signature as his own.</p></li>
+        </ul></figcaption></figure>
+      <figure class="champ"><img src="img/c-paladin.jpg" width="1040" height="580" loading="lazy" alt="Seraphine Dawnblade, a paladin in white and gold plate."><figcaption><h3>Seraphine Dawnblade</h3><span class="label">Paladin</span>
+        <ul class="kit">
+          <li class="k-p"><b>Divine Aim</b><span>Realm Power</span><p>The ball bends to the pin, and the cup draws it in.</p></li>
+          <li class="k-s"><b>Aegis of Dawn</b><span>Signature</span><p>No hazard penalties for the rest of the hole.</p></li>
+          <li class="k-a"><b>Armor of the Dawn</b><span>Ability</span><p>She becomes a knight of sunlight. Every shot this hole bends toward the pin.</p></li>
+          <li class="k-a"><b>Blade of Judgment</b><span>Ability</span><p>A sword of light falls by the leader's ball. Their next stroke loses 30% power.</p></li>
+        </ul></figcaption></figure>
+      <figure class="champ"><img src="img/c-wolf.jpg" width="1040" height="580" loading="lazy" alt="Fenrik Ashmane, a werewolf on a snowbound course."><figcaption><h3>Fenrik Ashmane</h3><span class="label">Werewolf</span>
+        <ul class="kit">
+          <li class="k-p"><b>Moon Frenzy</b><span>Realm Power</span><p>The beast takes him: +2 to every stat, +25% power.</p></li>
+          <li class="k-s"><b>Winter's Pack</b><span>Signature</span><p>His wolves carry off the first rival ball that comes near.</p></li>
+          <li class="k-a"><b>Glacier Run</b><span>Ability</span><p>The ball lands on a road of ice and slides far and straight.</p></li>
+          <li class="k-a"><b>Shadow of the Alpha</b><span>Ability</span><p>A ghost wolf stands over each rival and speeds up their swing meter.</p></li>
+        </ul></figcaption></figure>
+      <figure class="champ"><img src="img/c-emra.jpg" width="1040" height="580" loading="lazy" alt="Emra the Stormtalon, a winged valkyrie."><figcaption><h3>Emra the Stormtalon</h3><span class="label">Avian Valkyrie</span>
+        <ul class="kit">
+          <li class="k-p"><b>Stormwing Escort</b><span>Realm Power</span><p>She flies with her tee shot and steers it.</p></li>
+          <li class="k-s"><b>Stormtalon's Wrath</b><span>Signature</span><p>Blows each rival's next ball back from the hole.</p></li>
+          <li class="k-a"><b>Stormcaller</b><span>Ability</span><p>For the hole, the wind is behind her and in every rival's face.</p></li>
+          <li class="k-a"><b>Cyclone</b><span>Ability</span><p>A tornado stands short of the pin. It flings rival balls aside and throws hers on.</p></li>
+        </ul></figcaption></figure>
+    </div>
+    <p class="fine">Champion portraits are art from the opening cinematic.</p>
+  </div>
+</section>
+
+<section id="action" class="alt">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">02</span><div class="plate-t"><h2>Abilities in play</h2><span class="label">In-game, development build</span></div></div>
+    <p class="intro">The big ones stop the round for a few seconds and take the camera. All of these were shot on The Two Trees.</p>
+    <div class="shots three">
+      <figure class="shot"><img src="img/a-wyrm.jpg" width="1280" height="720" loading="lazy" alt="In-game: a red dragon with spread wings flies over the fairway toward a rival ball."><figcaption><b>Malgrath</b><strong>Wyrm of the Pit.</strong> Rival balls are left in ash, a bunker lie.</figcaption></figure>
+      <figure class="shot"><img src="img/a-judge.jpg" width="1280" height="720" loading="lazy" alt="In-game: a giant sword of golden light stands in the ground beside a tee."><figcaption><b>Seraphine</b><strong>Blade of Judgment.</strong> The leader's next stroke loses 30% power.</figcaption></figure>
+      <figure class="shot"><img src="img/a-cyc.jpg" width="1280" height="720" loading="lazy" alt="In-game: a dark tornado stands on the fairway short of the green."><figcaption><b>Emra</b><strong>Cyclone.</strong> It stands 45 yards short of the pin for the hole.</figcaption></figure>
+      <figure class="shot"><img src="img/a-moon.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tall streak of pale light, the Moonbow, stands beside an elf at the tee."><figcaption><b>Sylvara</b><strong>Moonbow.</strong> A bow of moonlight three times her height.</figcaption></figure>
+      <figure class="shot"><img src="img/a-ice.jpg" width="1280" height="720" loading="lazy" alt="In-game: a strip of blue ice with crystals runs down a fairway."><figcaption><b>Fenrik</b><strong>Glacier Run.</strong> A road of ice freezes ahead of the ball.</figcaption></figure>
+      <figure class="shot"><img src="img/a-leap.jpg" width="1280" height="720" loading="lazy" alt="In-game: an orc lands on the fairway in a ring of dust beside his ball."><figcaption><b>Grukka</b><strong>Warleap.</strong> He comes down beside his ball.</figcaption></figure>
+      <figure class="shot"><img src="img/a-crater.jpg" width="1280" height="720" loading="lazy" alt="In-game: an orc stands on the green beside a wide crater where the cup was."><figcaption><b>Grukka</b><strong>Crater Cup.</strong> Four feet wide, and only his ball drops.</figcaption></figure>
+      <figure class="shot"><img src="img/a-gate.jpg" width="1280" height="720" loading="lazy" alt="In-game: a ring-shaped gate of fire stands in front of a demon at the tee."><figcaption><b>Malgrath</b><strong>Hellgate.</strong> In this gate, out of another in the sky over the pin.</figcaption></figure>
+      <figure class="shot"><img src="img/a-mirrors.jpg" width="1280" height="720" loading="lazy" alt="In-game: panes of blue glass hang in the sky across the hole."><figcaption><b>Archmage</b><strong>Broken Mirrors.</strong> Panes hang across the approach.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="holes">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">03</span><div class="plate-t"><h2>Three new holes, two rebuilt</h2><span class="label">The course is a full eighteen</span></div></div>
+    <p class="intro">Every champion now has two home holes. Each new hole started as a concept painting, and its models were made from that painting.</p>
+    <div class="holes">
+      <figure class="hole"><img src="img/n-h16.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee inside a mountain hall of golden dwarf statues, a stone bridge running under a giant hammer."><figcaption><div class="hn"><i>16</i><h3>Halls of the Great Forge</h3></div><span class="label">New &nbsp;&middot;&nbsp; Par 5, 534 yards &nbsp;&middot;&nbsp; Brokk's home</span><p>Inside the mountain, on stone bridges over rivers of molten metal. Giant hammers fall on a timer and they can hit your ball. A low shot through the Hammer Gate is the short way round.</p></figcaption></figure>
+      <figure class="hole"><img src="img/n-h17.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee on a giant banquet table, giants eating behind loaves of bread and golden goblets."><figcaption><div class="hn"><i>17</i><h3>The Giant's Feast</h3></div><span class="label">New &nbsp;&middot;&nbsp; Par 4, 449 yards</span><p>Played across a giants' banquet table. Bread makes the hills, spilled salt the bunkers and goblets the water. Giants sit eating along the table and others walk round it while you play.</p></figcaption></figure>
+      <figure class="hole"><img src="img/n-h18.jpg" width="1280" height="720" loading="lazy" alt="In-game: a timber tee deck on a green rise with palm trees and a ruined tower."><figcaption><div class="hn"><i>18</i><h3>The World Turtle</h3></div><span class="label">New &nbsp;&middot;&nbsp; Par 4, 451 yards</span><p>The hole lies on the shell of a giant turtle walking through the ocean. The sea streams past and islands go by as you play.</p></figcaption></figure>
+    </div>
+    <div class="holes two">
+      <figure class="hole"><img src="img/n-h7.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee under tall trees at dusk, a paved way running to a lit elven city."><figcaption><div class="hn"><i>7</i><h3>Vale of Falling Waters</h3></div><span class="label">Rebuilt &nbsp;&middot;&nbsp; Par 5, now 700 yards &nbsp;&middot;&nbsp; Sylvara's home</span><p>Remade as the elves' capital, at dusk: you tee off under its gate. New models throughout, stone spans, a flowing sea of cloud, and elves and wildlife with their own animations.</p></figcaption></figure>
+      <figure class="hole"><img src="img/n-h10.jpg" width="1280" height="720" loading="lazy" alt="In-game: a tee facing a great colosseum across a ruined road at sunset."><figcaption><div class="hn"><i>10</i><h3>The Colosseum of Kings</h3></div><span class="label">Rebuilt &nbsp;&middot;&nbsp; Par 5, 514 yards</span><p>Rebuilt from nothing with a new set of models. A ruined road runs to the outer wall and you hit in through the breach. Inside: stands full of spectators, and flags that move with the game's own wind.</p></figcaption></figure>
+    </div>
+    <p class="fine"><strong>Also on Throne of Ash (hole 9):</strong> the Colossus has a new rig. He stalks in, pounds the green, then sits the throne in front of the castle and heckles you for the rest of the hole. His lines are subtitles for now; the voice is not recorded.</p>
+  </div>
+</section>
+
+<section id="entrance" class="alt">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">04</span><div class="plate-t"><h2>A new entrance</h2><span class="label">Title screen and champion select</span></div></div>
+    <div class="shots">
+      <figure class="shot"><img src="img/u-title.jpg" width="1640" height="920" loading="lazy" alt="In-game: the title screen with the gold logo over Crystal Mere and six menu buttons."><figcaption><b>Title screen</b>When the opening cinematic ends the camera comes down over Crystal Mere from high and wide, new title music starts on that frame, and the logo and buttons land on the music's beats.</figcaption></figure>
+      <figure class="shot"><img src="img/u-select.jpg" width="1640" height="920" loading="lazy" alt="In-game: the champion select screen with a compact card listing four abilities."><figcaption><b>Champion select</b>The description card is smaller so you see more of the champion, and each ability is a name and one short line.</figcaption></figure>
+    </div>
+    <p class="fine">The logo was redrawn at four times the resolution, with the dark haze round its letters gone. The title also has mist over the water, shafts of light, and drifting motes.</p>
+  </div>
+</section>
+
+<section id="notes">
+  <div class="wrap notes">
+    <div class="plate"><span class="plate-n">05</span><div class="plate-t"><h2>Patch notes</h2><span class="label">Everything since Test Build 18</span></div></div>
+
+    <div class="group c-new">
+      <div><span class="chip">New</span><h3>Added</h3><div class="count">8 additions</div></div>
+      <ul>
+        <li><strong>Three new holes:</strong> Halls of the Great Forge (16), The Giant's Feast (17) and The World Turtle (18). A full round is now eighteen holes.</li>
+        <li><strong>Eighteen new abilities,</strong> two for every champion, on <kbd>E</kbd> and <kbd>B</kbd>.</li>
+        <li><strong>Pit Fight,</strong> Grukka's new Signature: a ten-second brawl in third person. The loser takes a penalty stroke.</li>
+        <li><strong>A living gallery.</strong> Thirteen kinds of rigged spectators stand round every tee and green. Each has their own stance, fidgets and cheers, and they turn to watch the ball.</li>
+        <li><strong>Lobby champion select.</strong> Join and Host now go straight to a lobby where everyone picks on one screen and sees each other's cursor move, like a fighting game's select screen.</li>
+        <li><strong>Host game setup</strong> in the lobby: course length, Caddie Pip open or secret, mini-games, and a shot clock (off, 30, 60 or 90 seconds).</li>
+        <li><strong>A club set for every champion:</strong> 27 clubs sized to each champion's hands and theme, and a staff for the Archmage.</li>
+        <li><strong>Title music and reveal:</strong> a new title theme, and a camera move out of the opening cinematic timed to it.</li>
+      </ul>
+    </div>
+
+    <div class="group c-perf">
+      <div><span class="chip">Changed</span><h3>Reworked</h3><div class="count">11 changes</div></div>
+      <ul>
+        <li><strong>Every champion has exactly four abilities:</strong> a Realm Power, a Signature and two more.</li>
+        <li><strong>The Tome and the champion spellbooks are removed.</strong></li>
+        <li><strong>Signatures and abilities have three uses a round.</strong></li>
+        <li><strong>Realm Powers charge 25% slower.</strong></li>
+        <li><strong>Malgrath:</strong> Hellgate replaces Hellfire Drive.</li>
+        <li><strong>Archmage:</strong> Seer's Sight is removed. Broken Mirrors is his Realm Power, fired at a full charge.</li>
+        <li><strong>Vale of Falling Waters and The Colosseum of Kings</strong> are rebuilt from scratch.</li>
+        <li><strong>All 98 synthesised sounds are replaced by recordings.</strong> The harsh chime on Crystal Mere is gone; its sound is now a quiet ambient bed.</li>
+        <li><strong>Interface pass:</strong> one button style, one panel style, text centred in its boxes, and a fact shown once instead of three times.</li>
+        <li><strong>Every hole got an atmosphere pass</strong> against its concept painting, plus detail textures on rock and mountains.</li>
+        <li><strong>The sky-whale swims.</strong> It has a spine now and no longer holds a curl.</li>
+      </ul>
+    </div>
+
+    <div class="group c-fix">
+      <div><span class="chip">Fixes</span><h3>Fixed</h3><div class="count">5 fixes</div></div>
+      <ul>
+        <li><strong>Hall of the Fallen runs at 114 FPS, up from 63.</strong> Each flying creature's shadow was claiming 400 metres of shadow map every frame. Stormcrown Aerie, Eagle's Tarn and the Vale gained from the same fix.</li>
+        <li><strong>Zig-zag edges are smooth:</strong> island rims and shorelines no longer saw-tooth.</li>
+        <li><strong>Models sit level on slopes</strong> instead of hanging over them.</li>
+        <li><strong>Shorter wait between holes:</strong> champion rigs stay loaded from one hole to the next.</li>
+        <li><strong>Text in boxes sat low and off-centre</strong> across the menus. It is centred now.</li>
+      </ul>
+    </div>
+
+    <div class="group c-tool">
+      <div><span class="chip">Under the hood</span><h3>Testing</h3><div class="count">4 checks</div></div>
+      <ul>
+        <li><strong>Every ability has been played by computer golfers</strong> in automated rounds across all eighteen holes, with no errors or crashes.</li>
+        <li><strong>Two machines:</strong> rounds with abilities in play, where every shot's end position is compared between host and client. All matched.</li>
+        <li><strong>Nineteen menu and mode tests</strong> pass: menus, the four mini-games, the brawl, rematch, the Colossus, and map cycling.</li>
+        <li><strong>Hall of the Fallen was started 30 times</strong> after the shadow fix. The old driver hang did not return.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/k-vista.jpg" width="1600" height="893" loading="lazy" alt="Floating islands chained together above a golden storm: a temple isle, a volcano, and an ice shelf under an aurora.">
+  <figcaption><div class="wrap credit">Art from the opening cinematic</div></figcaption>
+</figure>
+
+<section id="scorecard">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">06</span><div class="plate-t"><h2>The scorecard</h2><span class="label">Frames per second, hole by hole</span></div></div>
+    <p class="intro">Every hole played start to finish. Development build, 1640&times;920, frame rate uncapped. "Before" is the Test Build 18 scorecard.</p>
+    <div class="key">
+      <span><i></i>Test Build 18</span>
+      <span><i class="k-a"></i>Gained since</span>
+      <span><i class="k-n"></i>New hole</span>
+      <span><i class="k-t"></i>60 FPS, the download build's cap</span>
+    </div>
+    <ol class="card">
+      <li class="row head"><span>Hole</span><span>Name</span><span class="axis"><span style="left:0">0</span><span style="left:25%">30</span><span style="left:50%">60</span><span style="left:75%">90</span></span><span class="v">Before &rarr; now</span><span class="d">Change</span></li>
+      <li class="row" style="--b:89;--a:92"><span class="n">1</span><span class="nm">Elderwood Gate</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">89<i>&rarr;</i><b>92</b></span><span class="d">+3</span></li>
+      <li class="row" style="--b:98;--a:101"><span class="n">2</span><span class="nm">Dragon's Spine</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">98<i>&rarr;</i><b>101</b></span><span class="d">+3</span></li>
+      <li class="row" style="--b:86;--a:95"><span class="n">3</span><span class="nm">Crystal Mere</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">86<i>&rarr;</i><b>95</b></span><span class="d">+9</span></li>
+      <li class="row" style="--b:95;--a:103"><span class="n">4</span><span class="nm">Gloomgate Vale</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">95<i>&rarr;</i><b>103</b></span><span class="d">+8</span></li>
+      <li class="row" style="--b:95;--a:97"><span class="n">5</span><span class="nm">Ironforge Deep</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">95<i>&rarr;</i><b>97</b></span><span class="d">+2</span></li>
+      <li class="row" style="--b:92;--a:92"><span class="n">6</span><span class="nm">Necropolis</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">93<i>&rarr;</i><b>92</b></span><span class="d even">&minus;1</span></li>
+      <li class="row" style="--b:86;--a:88"><span class="n">7</span><span class="nm">Vale of Falling Waters<small>Rebuilt</small></span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">86<i>&rarr;</i><b>88</b></span><span class="d">+2</span></li>
+      <li class="row" style="--b:87;--a:98"><span class="n">8</span><span class="nm">Eagle's Tarn</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">87<i>&rarr;</i><b>98</b></span><span class="d">+11</span></li>
+      <li class="row" style="--b:95;--a:98"><span class="n">9</span><span class="nm">Throne of Ash</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">95<i>&rarr;</i><b>98</b></span><span class="d">+3</span></li>
+      <li class="row" style="--b:101;--a:101"><span class="n">10</span><span class="nm">The Colosseum of Kings<small>Rebuilt</small></span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">107<i>&rarr;</i><b>101</b></span><span class="d even">&minus;6</span></li>
+      <li class="row" style="--b:105;--a:107"><span class="n">11</span><span class="nm">The Starfall Isles</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">105<i>&rarr;</i><b>107</b></span><span class="d">+2</span></li>
+      <li class="row" style="--b:96;--a:107"><span class="n">12</span><span class="nm">The Two Trees</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">96<i>&rarr;</i><b>107</b></span><span class="d">+11</span></li>
+      <li class="row" style="--b:97;--a:113"><span class="n">13</span><span class="nm">Stormcrown Aerie</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">97<i>&rarr;</i><b>113</b></span><span class="d">+16</span></li>
+      <li class="row" style="--b:63;--a:114"><span class="n">14</span><span class="nm">Hall of the Fallen</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">63<i>&rarr;</i><b>114</b></span><span class="d">+51</span></li>
+      <li class="row" style="--b:101;--a:101"><span class="n">15</span><span class="nm">Aurora Fjord</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">102<i>&rarr;</i><b>101</b></span><span class="d even">&minus;1</span></li>
+      <li class="row newhole" style="--b:0;--a:110"><span class="n">16</span><span class="nm">Halls of the Great Forge</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v"><b>110</b></span><span class="d nw">New</span></li>
+      <li class="row newhole" style="--b:0;--a:75"><span class="n">17</span><span class="nm">The Giant's Feast</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v"><b>75</b></span><span class="d nw">New</span></li>
+      <li class="row newhole" style="--b:0;--a:114"><span class="n">18</span><span class="nm">The World Turtle</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v"><b>114</b></span><span class="d nw">New</span></li>
+      <li class="row total" style="--b:93;--a:100"><span class="n">Avg</span><span class="nm">Holes 1 to 15</span><span class="bar"><i class="b"></i><i class="g"></i></span><span class="v">93<i>&rarr;</i><b>100</b></span><span class="d">+7</span></li>
+    </ol>
+    <p class="fine">This is not a like-for-like comparison: two holes were rebuilt and every hole gained a living gallery, an atmosphere pass and new sound since Test Build 18. The same hole measures about 5% either way from one run to the next, so the small changes are noise. The Giant's Feast is now the slowest hole, at 75.</p>
+  </div>
+</section>
+
+<section id="gaps" class="alt">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">07</span><div class="plate-t"><h2>Not yet verified</h2><span class="label">What to watch for in the next build</span></div></div>
+    <div class="gaps">
+      <div class="gap"><h3>Nothing here is in a download yet</h3><p>All of it was built and measured on the development build. The download build caps at 60 FPS and has not been made or timed with these changes.</p></div>
+      <div class="gap"><h3>Two abilities online</h3><p>Hellgate and Crater Cup have been played in single-machine rounds only. Every other new ability has been played with a host and a joining client.</p></div>
+      <div class="gap"><h3>Title music level</h3><p>The new title theme was set to the old loop's level by meter, not by ear. If it is too quiet or too loud, say so.</p></div>
+      <div class="gap"><h3>The Vale at dusk</h3><p>Hole 7 is set at dusk. The fairways may be too dark to read. Tell us if you lose the ball.</p></div>
+      <div class="gap"><h3>Elderwood Gate hang</h3><p>A rare graphics-driver hang in the first seconds of hole 1 is still open on the development build. It did not occur in this round of testing.</p></div>
+      <div class="gap"><h3>Balance</h3><p>The new abilities' numbers are first picks. If one is far too strong or never worth pressing, name it.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="art"><img src="img/k-green.jpg" width="1600" height="893" loading="lazy" alt="A golf ball rolling toward a golden cup at sunset while a dragon crosses the sky."></div>
+  <div class="wrap sign">
+    <img src="img/logo2.png" width="1210" height="234" loading="lazy" alt="Realmbreaker Golf">
+    <div class="tour">Tour of the Shattered Realms</div>
+    <div class="soon">Coming soon</div>
+    <p class="meta">Dev update &nbsp;&middot;&nbsp; 24 November 2026 &nbsp;&middot;&nbsp; <a href="test18.html">Test Build 18 patch notes</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
