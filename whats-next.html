@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Realmbreaker Golf: The Road Ahead</title>
+<meta name="description" content="What gets built next in Realmbreaker Golf: reactions on a rival's swing, home holes you can break, finishers, shot shaping and match play.">
+<meta name="theme-color" content="#f2c75b">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Realmbreaker Golf">
+<meta property="og:title" content="The Road Ahead: make the golf a duel">
+<meta property="og:description" content="Nineteen ideas on the build list: reactions on a rival's swing, breaking a champion's home realm, signature finishers with replay, shot shaping, lies that matter, and match play.">
+<meta property="og:url" content="https://capitolreal.github.io/realmbreaker-patch-notes/whats-next.html">
+<meta property="og:image" content="https://capitolreal.github.io/realmbreaker-patch-notes/img/k-vista.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="893">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0a0f0d;
+  --bg-2:#0f1713;
+  --panel:#141e19;
+  --panel-2:#1a2620;
+  --ink:#ece6d6;
+  --ink-dim:#a7ac9d;
+  --ink-faint:#737a6e;
+  --gold:#f2c75b;
+  --gold-hi:#ffe09a;
+  --gold-deep:#b58430;
+  --line:rgba(242,199,91,.24);
+  --line-soft:rgba(236,230,214,.10);
+  --fairway:#8fd16a;
+  --plate-a:#6f9f4c;
+  --plate-b:#3c6a2c;
+  --ember:#ff8a52;
+  --steel:#8fbbe0;
+  --wrap:1180px;
+  --gut:clamp(18px,4vw,40px);
+  --font:"Archivo",system-ui,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--font);font-size:17px;line-height:1.6;font-stretch:100%;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+::selection{background:var(--gold);color:#17120a}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.label{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--gold)}
+.dim{color:var(--ink-dim)}
+p{margin:0 0 1em;max-width:65ch}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(10,15,13,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:62px}
+.top img{height:30px;width:auto}
+.top nav{display:flex;gap:24px;margin-left:auto}
+.top nav a{text-decoration:none;font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--ink-dim);padding:6px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.top nav a:hover{color:var(--gold-hi);border-color:var(--gold)}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+.build{font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:#17120a;background:linear-gradient(180deg,var(--gold-hi),var(--gold));padding:5px 10px 4px;border-radius:3px;white-space:nowrap}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:#06090a}
+.hero-art{position:relative}
+.hero-art img{width:100%;aspect-ratio:1640/585;max-height:640px;object-fit:cover;object-position:50% 40%}
+.hero-art::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(10,15,13,.30) 0%,rgba(10,15,13,0) 14%,rgba(10,15,13,0) 58%,rgba(10,15,13,.80) 86%,var(--bg) 100%)}
+.hero-copy{position:relative;margin-top:clamp(-120px,-8vw,-24px);padding-bottom:44px}
+.hero h1{
+  margin:10px 0 18px;font-weight:900;font-style:italic;font-stretch:125%;text-transform:uppercase;
+  font-size:clamp(33px,6vw,78px);line-height:.96;letter-spacing:-.01em;text-wrap:balance;
+  text-shadow:0 3px 26px rgba(0,0,0,.75);
+}
+.hero h1 em{font-style:inherit;background:linear-gradient(180deg,var(--gold-hi) 10%,var(--gold) 55%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 3px 14px rgba(0,0,0,.7))}
+.hero .lede{font-size:clamp(17px,1.5vw,20px);color:var(--ink);max-width:60ch;text-shadow:0 1px 12px rgba(0,0,0,.8)}
+.credit{font-stretch:75%;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.notice{display:inline-block;margin:6px 0 0;padding:10px 16px;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;background:rgba(20,30,25,.86);font-size:15.5px;color:var(--ink);max-width:70ch}
+.notice strong{color:var(--gold-hi);font-weight:700}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,var(--panel-2),var(--panel));position:relative;margin-top:26px}
+.stats::before,.stats::after,.plate::before,.plate::after{content:"";position:absolute;top:50%;width:9px;height:9px;background:var(--gold);transform:translateY(-50%) rotate(45deg);box-shadow:0 0 0 2px var(--bg)}
+.stats::before,.plate::before{left:-5px}
+.stats::after,.plate::after{right:-5px}
+.stat{padding:22px 22px 20px;border-left:1px solid var(--line-soft)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font-weight:900;font-style:italic;font-stretch:112%;font-size:clamp(24px,2.7vw,36px);line-height:1.05;white-space:nowrap}
+.stat b i{font-style:normal;font-weight:500;color:var(--gold);padding:0 .12em}
+.stat b span{color:var(--ink-faint)}
+.stat .label{display:block;margin-top:8px}
+.stat small{display:block;color:var(--ink-dim);font-size:14px;line-height:1.4;margin-top:2px}
+.fine{font-size:14.5px;color:var(--ink-dim);margin-top:14px;max-width:78ch}
+.fine strong{color:var(--ink);font-weight:600}
+
+/* sections */
+section{padding:clamp(54px,7vw,96px) 0}
+.alt{background:
+  repeating-linear-gradient(115deg,rgba(143,209,106,.028) 0 46px,rgba(143,209,106,0) 46px 92px),
+  linear-gradient(180deg,var(--bg-2),var(--bg));
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.plate{position:relative;display:inline-flex;align-items:stretch;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#26342c,#131b17);margin-bottom:26px;max-width:100%}
+.plate-n{display:grid;place-items:center;min-width:74px;padding:0 14px;border-radius:9px 0 0 9px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:118%;font-size:32px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.45)}
+.plate-t{padding:11px 26px 10px 18px}
+.plate h2{margin:0;font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:clamp(19px,2.4vw,27px);line-height:1.1;letter-spacing:.01em}
+.plate .label{font-size:12.5px;color:var(--ink-dim)}
+.intro{font-size:18px;color:var(--ink);margin-bottom:30px}
+
+/* rules strip */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 30px}
+.rule{border:1px solid var(--line-soft);border-top:3px solid var(--c);border-radius:6px;padding:16px 18px;background:var(--panel)}
+.rule h3{margin:0 0 4px;font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:16px;color:var(--c)}
+.rule p{margin:0;color:var(--ink-dim);font-size:15.5px}
+.rule kbd,.notes kbd{font-family:inherit;font-weight:700;font-size:.82em;color:#17120a;background:var(--ink);border-radius:4px;padding:1px 7px 0;margin:0 2px}
+.r-p{--c:var(--gold)} .r-s{--c:var(--steel)} .r-a{--c:var(--fairway)}
+
+/* notes */
+.film ul,.notes ul{list-style:none;margin:0;padding:0}
+.film li,.notes li{position:relative;padding:0 0 0 22px;margin:0 0 12px;max-width:68ch}
+.film li::before,.notes li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.group{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(18px,4vw,56px);padding:30px 0;border-top:1px solid var(--line-soft)}
+.group:first-of-type{border-top:1px solid var(--line)}
+.group h3{margin:0;font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:20px;line-height:1.15}
+.chip{display:inline-flex;align-items:center;gap:8px;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--c);margin-bottom:10px}
+.chip::before{content:"";width:8px;height:8px;background:var(--c);transform:rotate(45deg)}
+.group .count{font-size:14px;color:var(--ink-faint);margin-top:6px}
+.notes li{margin-bottom:14px}
+.notes li::before{background:var(--c)}
+.notes li strong{color:#fff;font-weight:700}
+.c-new{--c:var(--fairway)} .c-perf{--c:var(--gold)} .c-fix{--c:var(--ember)} .c-tool{--c:var(--steel)}
+
+/* art band */
+.band{position:relative;margin:0}
+.band img{width:100%;aspect-ratio:21/8;object-fit:cover;object-position:50% 42%}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0,rgba(10,15,13,0) 22%,rgba(10,15,13,0) 60%,var(--bg) 100%)}
+.band figcaption{position:absolute;z-index:1;left:0;right:0;bottom:16px;text-align:right}
+
+/* scorecard */
+.card{list-style:none;margin:0;padding:6px 0;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,var(--panel-2),var(--panel))}
+.row{display:grid;grid-template-columns:52px minmax(150px,1.15fr) minmax(0,3fr) 132px 70px;align-items:center;gap:0 18px;padding:9px 22px 9px 14px;border-top:1px solid var(--line-soft)}
+.row:first-child{border-top:0}
+.row .n{justify-self:start;display:grid;place-items:center;width:42px;height:30px;border-radius:5px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:112%;font-size:17px;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.row .nm{font-weight:600;font-size:16px;line-height:1.25}
+.row .nm small{display:block;font-weight:500;font-size:12.5px;color:var(--ink-faint);font-stretch:75%;text-transform:uppercase;letter-spacing:.12em}
+.bar{position:relative;height:12px;background:rgba(255,255,255,.055);border-radius:2px}
+.bar .b,.bar .g{position:absolute;top:0;bottom:0}
+.bar .b{left:0;width:calc(var(--b)/120*100%);background:#55635a;border-radius:2px 0 0 2px}
+.bar .g{left:calc(var(--b)/120*100%);width:calc((var(--a) - var(--b))/120*100%);background:linear-gradient(90deg,var(--gold-deep),var(--gold));border-radius:0 2px 2px 0}
+.row.newhole .bar .g{background:linear-gradient(90deg,var(--plate-b),var(--fairway))}
+.bar::after{content:"";position:absolute;left:50%;top:-5px;bottom:-5px;width:1px;background:rgba(236,230,214,.34)}
+.row .v{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;color:var(--ink-dim)}
+.row .v i{font-style:normal;color:var(--ink-faint);padding:0 .3em}
+.row .v b{color:#fff;font-weight:800;font-size:18px}
+.row .d{text-align:right;font-weight:800;font-stretch:112%;font-style:italic;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+.row .d.even{color:var(--ink-faint);font-style:normal;font-stretch:75%;letter-spacing:.12em;font-size:13px}
+.row .d.nw{color:var(--fairway);font-style:normal;font-stretch:75%;letter-spacing:.12em;font-size:13px;text-transform:uppercase}
+.row.head{padding-top:12px;padding-bottom:8px}
+.row.head span{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--ink-faint)}
+.axis{position:relative;height:16px}
+.axis span{position:absolute;top:0;transform:translateX(-50%)}
+.axis span:first-child{transform:none}
+.row.total{border-top:1px solid var(--line);background:rgba(242,199,91,.05);padding-top:13px;padding-bottom:13px}
+.row.total .nm{font-weight:800;font-stretch:112%;text-transform:uppercase}
+.row.total .n{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#17120a;text-shadow:none;font-size:13px;font-stretch:75%;font-style:normal;letter-spacing:.08em}
+.key{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 16px;font-size:14px;color:var(--ink-dim)}
+.key span{display:inline-flex;align-items:center;gap:8px}
+.key i{width:22px;height:10px;border-radius:2px;background:#55635a}
+.key .k-a{background:linear-gradient(90deg,var(--gold-deep),var(--gold))}
+.key .k-n{background:linear-gradient(90deg,var(--plate-b),var(--fairway))}
+.key .k-t{width:1px;height:16px;background:rgba(236,230,214,.5);border-radius:0}
+
+/* champions and their kits */
+.champs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.champ{margin:0;border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;background:var(--panel);transition:border-color .2s,transform .2s}
+.champ:hover{border-color:var(--line);transform:translateY(-3px)}
+.champ img{width:100%;aspect-ratio:1040/580;object-fit:cover}
+.champ figcaption{padding:15px 18px 18px;border-top:1px solid var(--line)}
+.champ h3{margin:0;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:17px;line-height:1.2}
+.champ .label{display:block;margin:3px 0 0;font-size:12.5px}
+.kit{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:11px}
+.kit li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;align-items:baseline;padding-left:11px;border-left:2px solid var(--c)}
+.kit b{font-weight:800;font-stretch:108%;text-transform:uppercase;font-size:14.5px;line-height:1.25;color:#fff}
+.kit span{font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--c);white-space:nowrap}
+.kit p{grid-column:1/-1;margin:1px 0 0;color:var(--ink-dim);font-size:14.5px;line-height:1.4;font-style:normal}
+.k-p{--c:var(--gold)} .k-s{--c:var(--steel)} .k-a{--c:var(--fairway)}
+
+/* galleries */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.shots.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.shot{margin:0}
+.shot img{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line-soft);border-radius:6px}
+.shot figcaption{padding-top:9px;font-size:15px;color:var(--ink-dim)}
+.shot figcaption b{display:block;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--gold)}
+.shot figcaption strong{color:var(--ink);font-weight:700}
+
+/* holes */
+.holes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:20px}
+.holes.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hole{margin:0;border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;background:var(--panel)}
+.hole img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.hole figcaption{padding:16px 18px 18px;border-top:1px solid var(--line)}
+.hole .hn{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.hole .hn i{display:grid;place-items:center;min-width:42px;height:30px;padding:0 6px;border-radius:5px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:112%;font-size:17px;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.hole h3{margin:0;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:17px;line-height:1.2}
+.hole .label{display:block;font-size:12.5px;margin-bottom:8px}
+.hole p{margin:0;color:var(--ink-dim);font-size:15.5px}
+
+/* known gaps */
+.gaps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.gap{border:1px solid var(--line-soft);border-left:3px solid var(--ember);border-radius:6px;padding:20px 22px;background:var(--panel)}
+.gap h3{margin:0 0 6px;font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:16px}
+.gap p{margin:0;color:var(--ink-dim);font-size:16px}
+
+/* footer */
+footer{position:relative;background:#06090a;border-top:1px solid var(--line)}
+footer .art img{width:100%;aspect-ratio:21/8;object-fit:cover;object-position:50% 62%}
+footer .art{position:relative}
+footer .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,9,10,.35),rgba(6,9,10,0) 30%,rgba(6,9,10,.2) 60%,#06090a 100%)}
+.sign{position:relative;margin-top:clamp(-64px,-4vw,-14px);padding-bottom:46px;text-align:center}
+.sign img{height:clamp(42px,6vw,70px);width:auto;margin:0 auto 14px;filter:drop-shadow(0 6px 22px rgba(0,0,0,.8))}
+.sign .tour{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.3em;font-size:13px;color:var(--ink)}
+.sign .soon{font-weight:900;font-style:italic;font-stretch:125%;text-transform:uppercase;font-size:clamp(24px,3.6vw,40px);margin:12px 0 6px;color:var(--gold)}
+.sign .meta{margin:18px auto 0;color:var(--ink-faint);font-size:13.5px;max-width:none}
+.sign .meta a{color:var(--ink-dim)}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero-art img{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*:nth-child(2){animation-delay:.12s}
+  .hero-copy>*:nth-child(3){animation-delay:.24s}
+  .hero-copy>*:nth-child(4){animation-delay:.38s}
+  .hero-copy>*:nth-child(5){animation-delay:.5s}
+  @keyframes settle{from{transform:scale(1.07);filter:brightness(.55)}}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.champ{transition:none}}
+
+@media (max-width:980px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line-soft)}
+  .champs,.holes,.shots.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rules{grid-template-columns:1fr}
+  .group{grid-template-columns:1fr;gap:14px}
+  .gaps{grid-template-columns:1fr}
+  .row{grid-template-columns:46px minmax(120px,1fr) minmax(0,1.6fr) 118px 58px;gap:0 12px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .top nav{display:none}
+  .top .wrap{justify-content:space-between;height:56px}
+  .top img{height:25px}
+  html{scroll-padding-top:66px}
+  .row{grid-template-columns:42px minmax(0,1fr) auto;grid-template-areas:"n nm d" "n bar bar" "n v v";gap:5px 12px;padding:11px 14px 11px 12px;align-items:center}
+  .row .n{grid-area:n;align-self:start;width:36px}
+  .row .nm{grid-area:nm}.row .bar,.row .axis{grid-area:bar}.row .v{grid-area:v;text-align:left;font-size:14.5px}.row .d{grid-area:d}
+  .row .v b{font-size:15.5px}
+  .row.head{grid-template-areas:"n nm d" "n bar bar"}
+  .row.head .v{display:none}
+  .shots,.shots.three,.gaps,.holes,.holes.two{grid-template-columns:1fr}
+  .band img,footer .art img{aspect-ratio:16/9}
+  .band figcaption{position:static;text-align:left;padding-top:6px}
+}
+@media (max-width:540px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-left:0;padding:16px 18px}
+  .stat:nth-child(n+2){border-top:1px solid var(--line-soft)}
+  .champs{grid-template-columns:1fr}
+  .plate-n{min-width:58px;font-size:25px}
+  .plate-t{padding:9px 18px 8px 14px}
+  .build{font-size:11px}
+  .hero .label{letter-spacing:.07em;font-size:12px}
+}
+
+/* ---- 25 November 2026: where a change lives, skins, tee-view table ---- */
+.where{display:inline-block;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;line-height:1.3;padding:4px 9px 3px;border-radius:3px;white-space:nowrap;vertical-align:middle}
+.where.in{color:#17120a;background:linear-gradient(180deg,var(--gold-hi),var(--gold))}
+.where.dev{color:var(--fairway);box-shadow:inset 0 0 0 1px var(--fairway);background:rgba(143,209,106,.08)}
+.tagline{margin:-12px 0 18px}
+.split{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:44px 0 16px;font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:17px;line-height:1.3;color:var(--ink-dim)}
+.plate + .split{margin-top:4px}
+.notes figcaption a,.shot figcaption a,.intro a,.sign a{text-underline-offset:3px}
+.intro a{color:var(--gold-hi)}
+.shot figcaption a{color:var(--ink)}
+
+.skins{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.skin{grid-column:span 2}
+.skin:last-child:nth-child(odd){grid-column:2/span 2}
+.skin{margin:0;border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;background:var(--panel)}
+.skin figcaption{padding:14px 16px 12px;border-bottom:1px solid var(--line)}
+.skin h3{margin:0;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:17px;line-height:1.2}
+.skin .label{display:block;margin-top:3px;font-size:12.5px}
+.looks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-soft)}
+.look{background:var(--panel);padding-bottom:11px;text-align:center;min-width:0}
+.look img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.look b{display:block;margin:10px 6px 0;font-weight:800;text-transform:uppercase;font-size:13.5px;line-height:1.2;color:#fff;text-wrap:balance}
+.look span{display:block;margin:3px 5px 0;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:11px;line-height:1.25;color:var(--c)}
+.l1{--c:var(--ink-faint)} .l2{--c:var(--fairway)} .l3{--c:var(--gold)}
+
+.tee .bar .g{left:0;width:calc(var(--a)/240*100%);border-radius:2px}
+.tee .bar::after{left:25%}
+.tee .row .d.even{font-style:normal}
+
+@media (max-width:760px){.skins{grid-template-columns:1fr}.skin,.skin:last-child:nth-child(odd){grid-column:auto}.tagline{margin-top:-8px}}
+
+/* ---- the road ahead (whats-next.html) ---- */
+.st{display:inline-flex;align-items:center;gap:7px;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;line-height:1.3;padding:4px 9px 3px;border-radius:3px;white-space:nowrap;color:var(--c);box-shadow:inset 0 0 0 1px var(--c);background:color-mix(in srgb,var(--c) 9%,transparent)}
+.st::before{content:"";width:6px;height:6px;background:var(--c);transform:rotate(45deg)}
+.s-plan{--c:var(--gold)} .s-open{--c:var(--ember)} .s-later{--c:var(--steel)} .s-opt{--c:var(--fairway)}
+
+/* idea cards */
+.ideas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ideas.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.idea{position:relative;border:1px solid var(--line-soft);border-top:3px solid var(--c,var(--gold));border-radius:8px;padding:22px 22px 20px;background:linear-gradient(180deg,var(--panel-2),var(--panel));overflow:hidden}
+.idea .ic{display:block;width:46px;height:46px;margin-bottom:14px;color:var(--c,var(--gold))}
+.idea h3{margin:0 0 6px;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:18px;line-height:1.15}
+.idea p{margin:0 0 14px;color:var(--ink-dim);font-size:15.5px;line-height:1.5}
+.idea p:last-of-type{margin-bottom:14px}
+.idea .big{position:absolute;right:14px;top:6px;font-weight:900;font-style:italic;font-stretch:125%;font-size:64px;line-height:1;color:rgba(236,230,214,.045);pointer-events:none}
+.idea.wide{grid-column:span 2}
+.idea.art{padding:0}
+.idea.art img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.idea.art .in{padding:20px 22px}
+
+/* top five */
+.top5{list-style:none;margin:0;padding:6px 0;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,var(--panel-2),var(--panel));counter-reset:r}
+.top5 li{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,2fr) 150px;align-items:center;gap:0 22px;padding:16px 24px 16px 16px;border-top:1px solid var(--line-soft)}
+.top5 li:first-child{border-top:0}
+.top5 .rk{display:grid;place-items:center;width:52px;height:40px;border-radius:6px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-stretch:118%;font-size:24px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.45)}
+.top5 li:first-child .rk{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#17120a;text-shadow:none}
+.top5 h3{margin:0;font-weight:800;font-stretch:116%;text-transform:uppercase;font-size:19px;line-height:1.15}
+.top5 h3 small{display:block;margin-top:4px;font-stretch:75%;font-weight:600;letter-spacing:.14em;font-size:12px;color:var(--gold)}
+.top5 p{margin:0;color:var(--ink-dim);font-size:15.5px;line-height:1.45}
+.hype{display:grid;gap:5px}
+.hype .bar{height:10px}
+.hype .bar .g{left:0;width:var(--h);border-radius:2px;background:linear-gradient(90deg,var(--gold-deep),var(--gold))}
+.hype .bar::after{display:none}
+.hype span{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--ink-faint)}
+
+/* the duel timeline */
+.turn{margin:0 0 30px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#18241e,#0f1713);padding:22px 22px 14px}
+.turn svg{width:100%;height:auto}
+.turn figcaption{margin-top:6px;font-size:14.5px;color:var(--ink-dim)}
+.svgt{font-family:var(--font);font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em}
+.svgh{font-family:var(--font);font-weight:800;font-stretch:116%;text-transform:uppercase}
+
+/* nine champions */
+.nine{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px;margin:0 0 30px}
+.nine figure{margin:0;position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line-soft)}
+.nine img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(.9)}
+.nine figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 6px 7px;text-align:center;background:linear-gradient(180deg,rgba(6,9,10,0),rgba(6,9,10,.92));font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:11px;line-height:1.2;color:var(--ink)}
+.nine figcaption i{display:block;font-style:normal;color:var(--gold);font-size:10px}
+
+/* diagrams */
+.diag{display:block;width:100%;height:auto;margin:4px 0 12px;border-radius:6px;background:rgba(0,0,0,.22);border:1px solid var(--line-soft)}
+
+/* lies */
+.lies{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:4px}
+.lie{border:1px solid var(--line-soft);border-radius:6px;padding:14px 14px 12px;background:rgba(0,0,0,.2)}
+.lie b{display:block;font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:14px;color:#fff;line-height:1.2}
+.lie .sw{display:block;height:5px;border-radius:2px;margin:8px 0 10px;background:var(--sw)}
+.lie dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 10px;align-items:center}
+.lie dt{font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:10.5px;color:var(--ink-faint)}
+.lie dd{margin:0;display:flex;gap:3px}
+.lie dd i{width:100%;height:6px;border-radius:1px;background:rgba(255,255,255,.08)}
+.lie dd i.on{background:var(--gold)}
+
+/* HUD mock */
+.hud{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;background:rgba(6,9,10,.6);margin:4px 0 12px;overflow:hidden}
+.hud div{padding:12px 10px 10px;text-align:center;border-left:1px solid var(--line-soft)}
+.hud div:first-child{border-left:0}
+.hud b{display:block;font-weight:900;font-style:italic;font-stretch:112%;font-size:22px;line-height:1.05;color:#fff;white-space:nowrap}
+.hud span{display:block;margin-top:4px;font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--gold)}
+
+/* steps */
+.steps{list-style:none;margin:4px 0 12px;padding:0;display:grid;gap:8px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink)}
+.steps li::before{content:counter(s);display:grid;place-items:center;flex:none;width:28px;height:24px;border-radius:4px;background:linear-gradient(180deg,var(--plate-a),var(--plate-b));font-weight:900;font-style:italic;font-size:14px;color:#fff}
+
+/* sound meter */
+.meter{display:flex;align-items:flex-end;gap:4px;height:64px;margin:4px 0 12px;padding:0 2px}
+.meter i{flex:1;border-radius:2px 2px 0 0;background:linear-gradient(180deg,var(--gold),var(--gold-deep));height:var(--v)}
+.meter-k{display:flex;justify-content:space-between;margin:-6px 0 12px;font-stretch:75%;font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:10.5px;color:var(--ink-faint)}
+
+.callout{margin:30px 0 0;padding:18px 22px;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;background:rgba(20,30,25,.86);font-size:16.5px;max-width:none}
+.callout strong{color:var(--gold-hi)}
+
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:14px}
+
+@media (prefers-reduced-motion:no-preference){
+  .pulse{animation:pulse 2.6s ease-out infinite}
+  .pulse.d2{animation-delay:.85s}.pulse.d3{animation-delay:1.7s}
+  @keyframes pulse{0%{opacity:.9;transform:scale(.25)}100%{opacity:0;transform:scale(1)}}
+  .pulse{transform-box:fill-box;transform-origin:center}
+  .flight{stroke-dasharray:6 7;animation:dash 1.4s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-26}}
+}
+
+@media (max-width:980px){
+  .ideas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .idea.wide{grid-column:span 2}
+  .top5 li{grid-template-columns:56px minmax(0,1fr);grid-template-areas:"rk h" "rk p" "rk hy";gap:8px 16px}
+  .top5 .rk{grid-area:rk;align-self:start}.top5 h3{grid-area:h}.top5 p{grid-area:p}.top5 .hype{grid-area:hy;max-width:260px}
+  .nine{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .lies{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .ideas,.ideas.two{grid-template-columns:1fr}
+  .idea.wide{grid-column:auto}
+  .nine{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .top5 li{padding:14px 16px 14px 12px}
+  .turn{padding:14px 12px 10px;overflow-x:auto}
+  .turn svg{min-width:660px}
+}
+@media (max-width:540px){
+  .hud b{font-size:18px}
+  .hud div{padding:10px 4px 8px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <a href="#top" aria-label="Realmbreaker Golf, top of page"><img src="img/logo3.png" width="1210" height="234" alt="Realmbreaker Golf"></a>
+    <nav aria-label="Sections">
+      <a href="#top5">Top five</a>
+      <a href="#duel">Duel</a>
+      <a href="#feel">Feel</a>
+      <a href="#spectacle">Spectacle</a>
+      <a href="#screen">Screen</a>
+      <a href="#sound">Sound</a>
+      <a href="#keep">Keep playing</a>
+    </nav>
+    <span class="build">The Road Ahead</span>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-art">
+    <img src="img/k-vista.jpg" width="1600" height="893" alt="Floating islands chained together above a golden storm: a temple isle, a volcano, and an ice shelf under an aurora.">
+  </div>
+  <div class="wrap hero-copy">
+    <div class="label">The road ahead &nbsp;&middot;&nbsp; 26 November 2026 &nbsp;&middot;&nbsp; What gets built next</div>
+    <h1>Make the golf<br><em>a duel.</em></h1>
+    <p class="lede">Nine champions, eighteen holes, thirty-six abilities. The next step is to stop golf from being a waiting game: every shot your rival takes should be something you can answer, and every hole should feel like it belongs to someone.</p>
+    <p class="notice"><strong>None of this is in a build yet.</strong> It is the plan for the next stretch of work. Names, numbers and pictures of screens are sketches, and anything here can change after a test.</p>
+
+    <div class="stats">
+      <div class="stat"><b>19</b><span class="label">Ideas</span><small>every one on the build list</small></div>
+      <div class="stat"><b>6</b><span class="label">Areas</span><small>duel, feel, spectacle, screen, sound, keeping people playing</small></div>
+      <div class="stat"><b>9</b><span class="label">New reactions</span><small>one for each champion, played on a rival's turn</small></div>
+      <div class="stat"><b>2</b><span class="label">New ways to score</span><small>match play and a carry-over prize round, both optional</small></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- TOP FIVE -->
+<section class="alt" id="top5">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">&#9733;</span><div class="plate-t"><h2>The top five</h2><span class="label">The ideas that change the game most</span></div></div>
+    <ol class="top5">
+      <li><span class="rk">1</span><h3>Reactions<small>Play on their turn</small></h3><p>Each champion gets one ability to throw into a rival's swing: a gust, a heckle, a ward. Nobody just waits any more.</p><div class="hype"><div class="bar"><span class="g" style="--h:100%"></span></div><span>Biggest change</span></div></li>
+      <li><span class="rk">2</span><h3>Break the realm<small>Home holes that matter</small></h3><p>The home champion gets a small, visible edge on their two holes. Beat them there anyway and you break their realm for a bonus.</p><div class="hype"><div class="bar"><span class="g" style="--h:92%"></span></div><span>Pays off the name</span></div></li>
+      <li><span class="rk">3</span><h3>Finishers and replay<small>Spectacle</small></h3><p>Hole out or make an eagle and your champion gets a moment of their own while the gallery goes wild. The best shot of every hole plays back on a film camera.</p><div class="hype"><div class="bar"><span class="g" style="--h:84%"></span></div><span>The clip you send</span></div></li>
+      <li><span class="rk">4</span><h3>Shape and lie<small>Skill</small></h3><p>Draw, fade and punch shots picked before the swing. Lava glass, bone, table linen and turtle shell each bounce and roll their own way, and you can learn how.</p><div class="hype"><div class="bar"><span class="g" style="--h:76%"></span></div><span>Deeper golf</span></div></li>
+      <li><span class="rk">5</span><h3>Match play<small>A new way to score</small></h3><p>Win hole by hole, not on total strokes. One blow-up hole costs you that hole, not the whole round.</p><div class="hype"><div class="bar"><span class="g" style="--h:68%"></span></div><span>Fits a duel</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 01 DUEL -->
+<section id="duel">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">01</span><div class="plate-t"><h2>The duel</h2><span class="label">Golf you play against someone</span></div></div>
+    <p class="intro">Right now most abilities are used on your own turn. The duel changes that: your rival's swing becomes your move too.</p>
+
+    <figure class="turn">
+      <svg viewBox="0 0 1000 230" role="img" aria-label="A turn, left to right: your rival addresses the ball, swings, and the ball flies. During the swing you can play your reaction: a gust, a heckle or a ward.">
+        <defs>
+          <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#b58430"/><stop offset="1" stop-color="#ffe09a"/></linearGradient>
+          <linearGradient id="win" x1="0" x2="1"><stop offset="0" stop-color="#f2c75b" stop-opacity=".05"/><stop offset=".5" stop-color="#f2c75b" stop-opacity=".22"/><stop offset="1" stop-color="#f2c75b" stop-opacity=".05"/></linearGradient>
+        </defs>
+        <text x="0" y="22" class="svgt" font-size="13" fill="#a7ac9d">Your rival's turn</text>
+        <rect x="330" y="40" width="360" height="104" rx="8" fill="url(#win)" stroke="#f2c75b" stroke-opacity=".55" stroke-dasharray="5 5"/>
+        <text x="510" y="62" text-anchor="middle" class="svgt" font-size="13" fill="#ffe09a">Your reaction window</text>
+        <line x1="20" y1="100" x2="980" y2="100" stroke="#ece6d6" stroke-opacity=".25" stroke-width="2"/>
+        <g class="svgh" font-size="17" fill="#ece6d6" text-anchor="middle">
+          <circle cx="120" cy="100" r="13" fill="#3c6a2c" stroke="#8fd16a" stroke-width="2"/><text x="120" y="176">Address</text>
+          <circle cx="400" cy="100" r="13" fill="#3c6a2c" stroke="#8fd16a" stroke-width="2"/><text x="400" y="176">Backswing</text>
+          <circle cx="620" cy="100" r="13" fill="#3c6a2c" stroke="#8fd16a" stroke-width="2"/><text x="620" y="176">Strike</text>
+          <circle cx="880" cy="100" r="13" fill="#3c6a2c" stroke="#8fd16a" stroke-width="2"/><text x="880" y="176">Ball flies</text>
+        </g>
+        <path class="flight" d="M620 100 Q750 20 880 100" fill="none" stroke="#f2c75b" stroke-width="2.5"/>
+        <g class="svgt" font-size="12" text-anchor="middle">
+          <g transform="translate(420 118)"><rect x="-42" y="0" width="84" height="22" rx="4" fill="#141e19" stroke="#8fbbe0"/><text y="15" fill="#8fbbe0">Gust</text></g>
+          <g transform="translate(510 118)"><rect x="-42" y="0" width="84" height="22" rx="4" fill="#141e19" stroke="#ff8a52"/><text y="15" fill="#ff8a52">Heckle</text></g>
+          <g transform="translate(600 118)"><rect x="-42" y="0" width="84" height="22" rx="4" fill="#141e19" stroke="#8fd16a"/><text y="15" fill="#8fd16a">Ward</text></g>
+        </g>
+        <text x="0" y="218" class="svgt" font-size="12" fill="#737a6e">Sketch. Exact timing set in play tests.</text>
+      </svg>
+    </figure>
+
+    <div class="nine" aria-label="The nine champions, one reaction each">
+      <figure><img src="img/s-elf-0.jpg" width="450" height="600" loading="lazy" alt="Sylvara Moonbrook"><figcaption>Sylvara<i>Reaction</i></figcaption></figure>
+      <figure><img src="img/s-demon-0.jpg" width="450" height="600" loading="lazy" alt="Malgrath the Unbound"><figcaption>Malgrath<i>Reaction</i></figcaption></figure>
+      <figure><img src="img/s-dwarf-0.jpg" width="450" height="600" loading="lazy" alt="Brokk Ironbeard"><figcaption>Brokk<i>Reaction</i></figcaption></figure>
+      <figure><img src="img/s-orc-0.jpg" width="450" height="600" loading="lazy" alt="Grukka Bonecrusher"><figcaption>Grukka<i>Reaction</i></figcaption></figure>
+      <figure><img src="img/s-lich-0.jpg" width="450" height="600" loading="lazy" alt="Vex the Hollow King"><figcaption>Vex<i>Reaction</i></figcaption></figure>
+      <figure><img src="img/s-wizard-0.jpg" width="450" height="600" loading="lazy" alt="Archmage Thalorin"><figcaption>Thalorin<i>Reaction</i></figcaption></figure>
+      <figure><img src="img/s-paladin-0.jpg" width="450" height="600" loading="lazy" alt="Seraphine Dawnblade"><figcaption>Seraphine<i>Reaction</i></figcaption></figure>
+      <figure><img src="img/s-wolf-0.jpg" width="450" height="600" loading="lazy" alt="Fenrik Ashmane"><figcaption>Fenrik<i>Reaction</i></figcaption></figure>
+      <figure><img src="img/s-emra-0.jpg" width="450" height="600" loading="lazy" alt="Emra the Stormtalon"><figcaption>Emra<i>Reaction</i></figcaption></figure>
+    </div>
+
+    <div class="ideas">
+      <article class="idea" style="--c:var(--gold)"><span class="big">I</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 30c8 0 10-12 18-12s8 8 14 8"/><path d="M8 38c6 0 8-6 14-6"/><path d="M34 12l6 6-6 6"/></svg>
+        <h3>Reactions</h3><p>One ability per champion, played during an opponent's swing. A gust, a heckle, a ward.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--fairway)"><span class="big">II</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M24 14l-4 10h8l-4 10"/></svg>
+        <h3>Break the realm</h3><p>Every champion has two home holes. There they get a small perk you can see. Beat them on their own ground and you break the realm for a bonus.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--steel)"><span class="big">III</span>
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="32" rx="3"/><path d="M6 18h36M18 8v32M30 8v32"/><path d="M10 13h4M22 13h4M34 13h4"/></svg>
+        <h3>Match play and Bounties</h3><p>Win holes, not totals. Plus a prize round where a tied hole's prize carries over to the next. Both optional.</p><span class="st s-opt">Optional mode</span></article>
+    </div>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/h2-forge-deep.jpg" width="1280" height="720" loading="lazy" alt="In-game: inside the forge hall. A tall stone gantry holds a hammer in front of a colossal statue.">
+  <figcaption><div class="wrap credit">In-game today: hole 16, the Halls of the Great Forge</div></figcaption>
+</figure>
+
+<!-- 02 FEEL -->
+<section class="alt" id="feel">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">02</span><div class="plate-t"><h2>Mechanics and feel</h2><span class="label">Skill you can learn</span></div></div>
+    <p class="intro">Fewer guesses, more reads. The ball should do what a good player expects, and the ground under it should matter.</p>
+
+    <div class="ideas two">
+      <article class="idea" style="--c:var(--gold)">
+        <h3>Shot shaping</h3>
+        <svg class="diag" viewBox="0 0 440 200" role="img" aria-label="Seen from above: a straight shot, a draw curving left, a fade curving right, and a low punch.">
+          <circle cx="220" cy="182" r="6" fill="#ece6d6"/>
+          <line x1="220" y1="178" x2="220" y2="26" stroke="#ece6d6" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 6"/>
+          <path class="flight" d="M220 178 C 250 120, 200 60, 130 30" fill="none" stroke="#8fbbe0" stroke-width="3"/>
+          <path class="flight" d="M220 178 C 190 120, 240 60, 310 30" fill="none" stroke="#ff8a52" stroke-width="3"/>
+          <path d="M220 178 L 220 92" fill="none" stroke="#8fd16a" stroke-width="5" stroke-linecap="round"/>
+          <g class="svgt" font-size="12"><text x="96" y="22" fill="#8fbbe0">Draw</text><text x="300" y="22" fill="#ff8a52">Fade</text><text x="232" y="98" fill="#8fd16a">Punch</text><text x="232" y="34" fill="#a7ac9d">Straight</text></g>
+        </svg>
+        <p>Draw, fade or punch, chosen before you swing. Wind and slope reward the right one. It builds on the finer aiming already in.</p><span class="st s-plan">Planned</span></article>
+
+      <article class="idea" style="--c:var(--fairway)">
+        <h3>A proper putting read</h3>
+        <svg class="diag" viewBox="0 0 440 200" role="img" aria-label="A green seen from above with contour rings pulsing outward and a coloured putting line bending toward the cup.">
+          <ellipse cx="220" cy="100" rx="200" ry="86" fill="#2b4a24"/>
+          <g fill="none" stroke="#8fd16a" stroke-width="1.5" stroke-opacity=".5">
+            <ellipse cx="290" cy="88" rx="40" ry="22"/><ellipse cx="290" cy="88" rx="80" ry="44"/><ellipse cx="290" cy="88" rx="125" ry="66"/>
+          </g>
+          <g fill="none" stroke="#ffe09a" stroke-width="2">
+            <ellipse class="pulse" cx="290" cy="88" rx="150" ry="80"/><ellipse class="pulse d2" cx="290" cy="88" rx="150" ry="80"/><ellipse class="pulse d3" cx="290" cy="88" rx="150" ry="80"/>
+          </g>
+          <path d="M80 140 Q 180 160, 250 100" fill="none" stroke="#f2c75b" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+          <circle cx="80" cy="140" r="6" fill="#ece6d6"/><circle cx="252" cy="99" r="7" fill="#06090a" stroke="#f2c75b" stroke-width="2"/>
+        </svg>
+        <p>A coloured putting line, plus a short pulse that shows the green's contours. Reading becomes a skill, not a guess.</p><span class="st s-plan">Planned</span></article>
+
+      <article class="idea wide" style="--c:var(--ember)">
+        <h3>Lies that matter</h3>
+        <p>Every realm's ground plays its own way. Learn it and you can use it.</p>
+        <div class="lies">
+          <div class="lie" style="--sw:linear-gradient(90deg,#3a0f06,#ff8a52,#3a0f06)"><b>Lava glass</b><span class="sw"></span><dl><dt>Bounce</dt><dd><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></dd><dt>Roll</dt><dd><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></dd></dl></div>
+          <div class="lie" style="--sw:linear-gradient(90deg,#8d8270,#ece6d6,#8d8270)"><b>Bone</b><span class="sw"></span><dl><dt>Bounce</dt><dd><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></dd><dt>Roll</dt><dd><i class="on"></i><i class="on"></i><i></i><i></i><i></i></dd></dl></div>
+          <div class="lie" style="--sw:linear-gradient(90deg,#c9c3b2,#fff,#c9c3b2)"><b>Table linen</b><span class="sw"></span><dl><dt>Bounce</dt><dd><i class="on"></i><i></i><i></i><i></i><i></i></dd><dt>Roll</dt><dd><i class="on"></i><i class="on"></i><i></i><i></i><i></i></dd></dl></div>
+          <div class="lie" style="--sw:linear-gradient(90deg,#2f4a2a,#6f9f4c,#2f4a2a)"><b>Turtle shell</b><span class="sw"></span><dl><dt>Bounce</dt><dd><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></dd><dt>Roll</dt><dd><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></dd></dl></div>
+        </div>
+        <p class="fine">Bars are a sketch of the idea, not tuned numbers.</p>
+        <span class="st s-plan">Planned</span></article>
+
+      <article class="idea wide" style="--c:var(--ember)">
+        <h3>The Goblin Market: a wager?</h3>
+        <p>The hole-side shop could become a bet between holes: stake strokes or ability uses on how you play the next one. If that doesn't land in play, the market goes.</p>
+        <span class="st s-open">Undecided: wager or cut</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- 03 SPECTACLE -->
+<section id="spectacle">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">03</span><div class="plate-t"><h2>Style and spectacle</h2><span class="label">Moments worth clipping</span></div></div>
+    <p class="intro">The big shots should look like big shots.</p>
+    <div class="ideas">
+      <article class="idea" style="--c:var(--gold)">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z"/></svg>
+        <h3>Signature finishers</h3><p>A hole-out or an eagle sets off a short moment for that champion, and the gallery reacts.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--steel)">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="12" width="30" height="24" rx="3"/><path d="M34 20l10-6v20l-10-6"/><path d="M15 19v10l8-5z"/></svg>
+        <h3>Best-shot replay</h3><p>At the end of each hole, the best shot plays back on a film camera.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea art" style="--c:var(--steel)">
+        <img src="img/h2-turtle.jpg" width="1280" height="720" loading="lazy" alt="In-game: a fairway sunk between the plates of a giant turtle's shell, with palms and a ruined tower beyond.">
+        <div class="in"><h3>Holes that change mid-round</h3><p>The World Turtle already walks and the giants already eat. One day every hole could have a timed event that moves the line.</p><span class="st s-later">Down the road</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SCREEN -->
+<section class="alt" id="screen">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">04</span><div class="plate-t"><h2>On the screen</h2><span class="label">Less to read, more to play</span></div></div>
+    <div class="ideas">
+      <article class="idea" style="--c:var(--gold)">
+        <h3>One-glance shot summary</h3>
+        <div class="hud" aria-label="Example summary: 214 yards, fairway, wind 8 left, 5 iron"><div><b>214</b><span>Yards</span></div><div><b>Fwy</b><span>Lie</span></div><div><b>8&larr;</b><span>Wind</span></div><div><b>5i</b><span>Club</span></div></div>
+        <p>Distance, lie, wind and club in one look. Everything else stays hidden until you ask for it.</p><p class="fine">Example values.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--fairway)">
+        <h3>Tobin shows you round</h3>
+        <ol class="steps"><li>Aim and swing</li><li>Use an ability</li><li>Read the green</li></ol>
+        <p>The Archmage's apprentice teaches your first round in three shots. Skip it if you know what you're doing.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--steel)">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16h8l4-6h12l4 6h8v24H6z"/><circle cx="24" cy="27" r="8"/></svg>
+        <h3>Photo mode</h3><p>Stop the game, frame the shot, take the picture. The best ones end up on pages like this one.</p><span class="st s-plan">Planned</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- 05 SOUND -->
+<section id="sound">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">05</span><div class="plate-t"><h2>Sound</h2><span class="label">Every realm sounds like itself</span></div></div>
+    <div class="ideas">
+      <article class="idea" style="--c:var(--ember)">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="30" r="7"/><path d="M28 22c3 3 3 9 0 12M33 17c6 6 6 18 0 24"/><path d="M4 40h24"/></svg>
+        <h3>Surface impacts</h3><p>The ball sounds different on glass, bone, linen, shell and grass.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--gold)">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="18" r="5"/><circle cx="24" cy="14" r="5"/><circle cx="36" cy="18" r="5"/><path d="M4 38c0-7 4-11 8-11s8 4 8 11M16 38c0-8 4-13 8-13s8 5 8 13M28 38c0-7 4-11 8-11s8 4 8 11"/></svg>
+        <h3>A crowd for each realm</h3><p>The giants roar differently from the elves. Each realm's gallery reacts its own way.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--fairway)">
+        <h3>Music that follows the round</h3>
+        <div class="meter" aria-label="Music level rising across a round, quiet early, loudest on the closing holes"><i style="--v:18%"></i><i style="--v:20%"></i><i style="--v:16%"></i><i style="--v:24%"></i><i style="--v:22%"></i><i style="--v:28%"></i><i style="--v:26%"></i><i style="--v:34%"></i><i style="--v:32%"></i><i style="--v:40%"></i><i style="--v:44%"></i><i style="--v:42%"></i><i style="--v:52%"></i><i style="--v:58%"></i><i style="--v:64%"></i><i style="--v:74%"></i><i style="--v:86%"></i><i style="--v:100%"></i></div>
+        <div class="meter-k"><span>Hole 1</span><span>Hole 18</span></div>
+        <p>Quiet when you address the ball, rising on the last holes of a close match.</p><span class="st s-plan">Planned</span></article>
+    </div>
+    <p class="callout"><strong>Your ears help most here.</strong> When you play a test build, tell us any sound that feels wrong, too loud, or missing.</p>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/h2-feast.jpg" width="1280" height="720" loading="lazy" alt="In-game: a giants' banquet table from above, a white cloth runner winding between loaves and goblets to a green.">
+  <figcaption><div class="wrap credit">In-game today: hole 17, the Giant's Feast</div></figcaption>
+</figure>
+
+<!-- 06 KEEP PLAYING -->
+<section class="alt" id="keep">
+  <div class="wrap">
+    <div class="plate"><span class="plate-n">06</span><div class="plate-t"><h2>Keeping people playing</h2><span class="label">Reasons to come back</span></div></div>
+    <div class="ideas">
+      <article class="idea" style="--c:var(--gold)">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="18" r="12"/><path d="M16 28l-4 16 12-6 12 6-4-16"/><path d="M24 12v12M18 18h12"/></svg>
+        <h3>Champion mastery</h3><p>Skins and club sets earned by feats on that champion's own home holes.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--steel)">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="36" height="34" rx="3"/><path d="M6 18h36M16 4v8M32 4v8"/><path d="M16 30l6 5 10-11"/></svg>
+        <h3>Daily hole</h3><p>One hole a day with a fixed wind, and a leaderboard against your friends.</p><span class="st s-plan">Planned</span></article>
+      <article class="idea" style="--c:var(--ember)">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h26v18H18l-8 7v-7H6z"/><path d="M36 18h6v16h-4v6l-7-6H22"/></svg>
+        <h3>Heckle online</h3><p>Waiting for your turn online? Cheer or jeer along with the gallery.</p><span class="st s-plan">Planned</span></article>
+    </div>
+    <div class="legend"><span class="st s-plan">Planned</span><span class="st s-opt">Optional mode</span><span class="st s-open">Undecided</span><span class="st s-later">Down the road</span></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="art"><img src="img/k-green.jpg" width="1600" height="894" loading="lazy" alt="A golf ball rolling toward a golden cup at sunset while a dragon crosses the sky."></div>
+  <div class="wrap sign">
+    <img src="img/logo3.png" width="1210" height="234" loading="lazy" alt="Realmbreaker Golf">
+    <div class="tour">Tour of the Shattered Realms</div>
+    <div class="soon">The duel is coming</div>
+    <p class="meta">The road ahead &nbsp;&middot;&nbsp; 26 November 2026 &nbsp;&middot;&nbsp; <a href="./">Latest dev update</a> &nbsp;&middot;&nbsp; <a href="test18.html">Test Build 18 patch notes</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
